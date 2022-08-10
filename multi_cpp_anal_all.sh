@@ -32,21 +32,21 @@ for TYPE in ${TYPES[@]} ; do
         
         # get both refs but only fit to one
         if [ $PDB = "2kod" ] ; then
-            C0="$C0 reference /ix/lchong/dty7/hiv1_capsid/we/unbinding/1a43/std-prep/1a43_solv3.pdb :* name [xtal] \n"
-            C0="$C0 reference /ix/lchong/dty7/hiv1_capsid/we/unbinding/2kod/std-prep/2kod_m01_solv.pdb :* name [nmr] \n"
-            C0="$C0 reference /ix/lchong/dty7/hiv1_capsid/we/unbinding/2kod/std-prep/2kod_m01_solv.pdb :* name [REF] \n"
+            C0="$C0 reference /ix/lchong/dty7/hiv1_capsid/we/ctd-unbinding/1a43/std-prep/1a43_solv3.pdb :* name [xtal] \n"
+            C0="$C0 reference /ix/lchong/dty7/hiv1_capsid/we/ctd-unbinding/2kod/std-prep/2kod_m01_solv.pdb :* name [nmr] \n"
+            C0="$C0 reference /ix/lchong/dty7/hiv1_capsid/we/ctd-unbinding/2kod/std-prep/2kod_m01_solv.pdb :* name [REF] \n"
             C0="$C0 rms NMR_RMS_FIT :6-75,94-163&!@H= ref [nmr] \n"
         elif [ $PDB = "1a43" ] ; then
-            C0="$C0 reference /ix/lchong/dty7/hiv1_capsid/we/unbinding/1a43/std-prep/1a43_solv3.pdb :* name [xtal] \n"
-            C0="$C0 reference /ix/lchong/dty7/hiv1_capsid/we/unbinding/2kod/std-prep/2kod_m01_solv.pdb :* name [nmr] \n"
-            C0="$C0 reference /ix/lchong/dty7/hiv1_capsid/we/unbinding/1a43/std-prep/1a43_solv3.pdb :* name [REF] \n"
+            C0="$C0 reference /ix/lchong/dty7/hiv1_capsid/we/ctd-unbinding/1a43/std-prep/1a43_solv3.pdb :* name [xtal] \n"
+            C0="$C0 reference /ix/lchong/dty7/hiv1_capsid/we/ctd-unbinding/1a43/std-prep/1a43_solv3.pdb :* name [REF] \n"
+            C0="$C0 reference /ix/lchong/dty7/hiv1_capsid/we/ctd-unbinding/2kod/std-prep/2kod_m01_solv.pdb :* name [nmr] \n"
             C0="$C0 rms XTAL_RMS_FIT :6-75,94-163&!@H= ref [xtal] \n"
         fi
 
         # calc dimer C2 helical angle using vectors
         C1="    vector M1 :1-75@CA,C,O,N :39@CA,C,O,N \n"
         C1="$C1 vector M2 :89-163@CA,C,O,N :127@CA,C,O,N \n"
-        C1="$C1 vectormath vec1 M1 vec2 M2 out 1-75_39_c2_angle.dat name C2_Angle dotangle \n"
+        C1="$C1 vectormath vec1 M1 vec2 M2 out c2_angle.dat name C2_Angle dotangle \n"
         # calc dimer C2 helical angle using a 3 point angle definition
         # using backbone N of: T186 M1 --- M1 and M2 V181 --- T186 M2
         C1="$C1 angle helix_angle :43@N :38,126@N :131@N out angle_3pt.dat mass \n"

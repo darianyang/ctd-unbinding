@@ -1,8 +1,8 @@
     parm ../2kod_m01_dry.prmtop 
  trajin ../06_prod_dry_10i.nc 1 last 1 
- reference /ix/lchong/dty7/hiv1_capsid/we/unbinding/1a43/std-prep/1a43_solv3.pdb :* name [xtal] 
- reference /ix/lchong/dty7/hiv1_capsid/we/unbinding/2kod/std-prep/2kod_m01_solv.pdb :* name [nmr] 
- reference /ix/lchong/dty7/hiv1_capsid/we/unbinding/2kod/std-prep/2kod_m01_solv.pdb :* name [REF] 
+ reference /ix/lchong/dty7/hiv1_capsid/we/ctd-unbinding/1a43/std-prep/1a43_solv3.pdb :* name [xtal] 
+ reference /ix/lchong/dty7/hiv1_capsid/we/ctd-unbinding/2kod/std-prep/2kod_m01_solv.pdb :* name [nmr] 
+ reference /ix/lchong/dty7/hiv1_capsid/we/ctd-unbinding/2kod/std-prep/2kod_m01_solv.pdb :* name [REF] 
  rms NMR_RMS_FIT :6-75,94-163&!@H= ref [nmr] 
     rms Fit_M2_NMR :94-163&!@H= ref [nmr] 
  rms RMS_M1_NMR :6-75&!@H= ref [nmr] nofit mass time 1 out rms_m1_nmr.dat 
