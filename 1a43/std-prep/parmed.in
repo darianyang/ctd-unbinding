@@ -1,0 +1,6 @@
+parm 1a43_solv.prmtop
+loadCoordinates 1a43_solv.pdb
+strip :24160-24164
+outparm 1a43_solv2.prmtop 1a43_solv2.inpcrd
+outpdb 1a43_solv2.pdb
+quit

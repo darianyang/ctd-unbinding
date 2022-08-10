@@ -1,0 +1,152 @@
+
+          -------------------------------------------------------
+          Amber 18 PMEMD                              2018
+          -------------------------------------------------------
+
+| PMEMD implementation of SANDER, Release 18
+
+| Run on 07/22/2022 at 15:02:17
+
+|   Executable path: pmemd.MPI
+| Working directory: /ix/lchong/dty7/hiv1_capsid/we/unbinding/1a43/std-prep
+|          Hostname: smp-n204
+
+  [-O]verwriting output
+
+File Assignments:
+|   MDIN: 02_min.in                                                             
+|  MDOUT: 02_min.out                                                            
+| INPCRD: 1a43_solv2.inpcrd                                                     
+|   PARM: 1a43_solv2.prmtop                                                     
+| RESTRT: 02_min.rst                                                            
+|   REFC: refc                                                                  
+|  MDVEL: mdvel                                                                 
+|   MDEN: mden                                                                  
+|  MDCRD: mdcrd                                                                 
+| MDINFO: mdinfo                                                                
+|LOGFILE: logfile                                                               
+|  MDFRC: mdfrc                                                                 
+
+ 
+ Here is the input file:
+ 
+Unrestrained 10000 step minimization, 500 SD                                   
+&cntrl                                                                         
+  imin      = 1,                                                               
+  irest     = 0,                                                               
+  ntx       = 1,                                                               
+  ntmin     = 1,                                                               
+  maxcyc    = 10000,                                                           
+  ncyc      = 500,                                                             
+  ntr       = 0,                                                               
+  ntb       = 1,                                                               
+  ntf       = 1,                                                               
+  ntc       = 1,                                                               
+  cut       = 10.0,                                                            
+  ntpr      = 1,                                                               
+  ntxo      = 2,                                                               
+  ntwr      = 10000,                                                           
+  ioutfm    = 1,                                                               
+  ntwx      = 0,                                                               
+  iwrap     = 1,                                                               
+&end                                                                           
+
+
+Note: ig = -1. Setting random seed to   660305 based on wallclock time in
+      microseconds and disabling the synchronization of random numbers 
+      between tasks to improve performance.
+| irandom = 1, using AMBER's internal random number generator (default).
+ 
+ 
+| Conditional Compilation Defines Used:
+| MPI
+| FFTW_FFT
+| BINTRAJ
+| MKL
+| EMIL
+ 
+| Largest sphere to fit in unit cell has radius =    41.649
+
+| New format PARM file being parsed.
+| Version =    1.000 Date = 07/22/22 Time = 14:40:53
+
+| Note: 1-4 EEL scale factors are being read from the topology file.
+
+| Note: 1-4 VDW scale factors are being read from the topology file.
+| Duplicated    0 dihedrals
+
+| Duplicated    0 dihedrals
+
+--------------------------------------------------------------------------------
+   1.  RESOURCE   USE: 
+--------------------------------------------------------------------------------
+
+ getting new box info from bottom of inpcrd
+ NATOM  =   74705 NTYPES =      18 NBONH =   73329 MBONA  =    1400
+ NTHETH =    3162 MTHETA =    1894 NPHIH =    6040 MPHIA  =    6476
+ NHPARM =       0 NPARM  =       0 NNB   =  111178 NRES   =   24159
+ NBONA  =    1400 NTHETA =    1894 NPHIA =    6476 NUMBND =      86
+ NUMANG =     201 NPTRA  =     423 NATYP =      44 NPHB   =       0
+ IFBOX  =       2 NMXRS  =      24 IFCAP =       0 NEXTRA =       0
+ NCOPY  =       0
+
+| Coordinate Index Table dimensions:    15   15   15
+| Direct force subcell size =     6.8011    6.8011    6.8011
+
+     BOX TYPE: TRUNCATED OCTAHEDRON
+
+--------------------------------------------------------------------------------
+   2.  CONTROL  DATA  FOR  THE  RUN
+--------------------------------------------------------------------------------
+
+default_name                                                                    
+
+General flags:
+     imin    =       1, nmropt  =       0
+
+Nature and format of input:
+     ntx     =       1, irest   =       0, ntrx    =       1
+
+Nature and format of output:
+     ntxo    =       2, ntpr    =       1, ntrx    =       1, ntwr    =   10000
+     iwrap   =       1, ntwx    =       0, ntwv    =       0, ntwe    =       0
+     ioutfm  =       1, ntwprt  =       0, idecomp =       0, rbornstat=      0
+
+Potential function:
+     ntf     =       1, ntb     =       1, igb     =       0, nsnb    =      25
+     ipol    =       0, gbsa    =       0, iesp    =       0
+     dielc   =   1.00000, cut     =  10.00000, intdiel =   1.00000
+
+Frozen or restrained atoms:
+     ibelly  =       0, ntr     =       0
+
+Energy minimization:
+     maxcyc  =   10000, ncyc    =     500, ntmin   =       1
+     dx0     =   0.01000, drms    =   0.00010
+
+| Intermolecular bonds treatment:
+|     no_intermolecular_bonds =       1
+
+| Energy averages sample interval:
+|     ene_avg_sampling =       1
+
+Ewald parameters:
+     verbose =       0, ew_type =       0, nbflag  =       1, use_pme =       1
+     vdwmeth =       1, eedmeth =       1, netfrc  =       0
+     Box X =  102.016   Box Y =  102.016   Box Z =  102.016
+     Alpha =  109.470   Beta  =  109.470   Gamma =  109.470
+     NFFT1 =  108       NFFT2 =  108       NFFT3 =  108
+     Cutoff=   10.000   Tol   =0.100E-04
+     Ewald Coefficient =  0.27511
+     Interpolation order =    4
+
+| PMEMD ewald parallel performance parameters:
+|     block_fft =    0
+|     fft_blk_y_divisor =    2
+|     excl_recip =    0
+|     excl_master =    0
+|     atm_redist_freq =  320
+
+  Error: ifbox=2 in prmtop but angles are not correct
+ Input errors occurred. Terminating execution.
+

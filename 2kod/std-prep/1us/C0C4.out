@@ -1,0 +1,322 @@
+
+CPPTRAJ: Trajectory Analysis. V4.14.0 (AmberTools V19.11) MPI
+    ___  ___  ___  ___
+     | \/ | \/ | \/ | 
+    _|_/\_|_/\_|_/\_|_
+
+| Running on 8 processes.
+| Date/time: 08/10/22 12:19:46
+| Available memory: 192.758 GB
+
+INPUT: Reading input from 'C0C4.cpp'
+  [parm ../2kod_m01_dry.prmtop]
+	Reading '../2kod_m01_dry.prmtop' as Amber Topology
+	Radius Set: modified Bondi radii (mbondi)
+  [trajin ../06_prod_dry_10i.nc 1 last 1]
+	Reading '../06_prod_dry_10i.nc' as Amber NetCDF
+  [reference /ix/lchong/dty7/hiv1_capsid/we/unbinding/1a43/std-prep/1a43_solv3.pdb :* name [xtal]]
+	Reading '/ix/lchong/dty7/hiv1_capsid/we/unbinding/1a43/std-prep/1a43_solv3.pdb' as PDB
+	Read CRYST1 info from PDB: a=102.016 b=102.016 c=102.016 alpha=109.47 beta=109.47 gamma=109.47
+Warning: Low precision truncated octahedron angles detected (109.47 vs 109.471).
+Warning:   If desired, the 'box' command can be used during processing
+Warning:   to set higher-precision angles.
+Warning: PDB 1a43_solv3.pdb: Reading frame 28, got 185 atoms, expected 2760.
+Warning: Only using frames 1-27
+Warning: Reference has 27 frames, only reading frame 1
+	Read CRYST1 info from PDB: a=102.016 b=102.016 c=102.016 alpha=109.47 beta=109.47 gamma=109.47
+	Stripped ref parm: 2760 atoms, 176 res, box: Trunc. Oct., 2 mol
+	Setting active reference for distance-based masks: '1a43_solv3.pdb'
+  [reference /ix/lchong/dty7/hiv1_capsid/we/unbinding/2kod/std-prep/2kod_m01_solv.pdb :* name [nmr]]
+	Reading '/ix/lchong/dty7/hiv1_capsid/we/unbinding/2kod/std-prep/2kod_m01_solv.pdb' as PDB
+	Read CRYST1 info from PDB: a=102.016 b=102.016 c=102.016 alpha=109.47 beta=109.47 gamma=109.47
+Warning: Low precision truncated octahedron angles detected (109.47 vs 109.471).
+Warning:   If desired, the 'box' command can be used during processing
+Warning:   to set higher-precision angles.
+Warning: PDB line length is short (67 chars, expected 80).
+Warning: PDB 2kod_m01_solv.pdb: Reading frame 28, got 185 atoms, expected 2760.
+Warning: Only using frames 1-27
+Warning: Reference has 27 frames, only reading frame 1
+	Read CRYST1 info from PDB: a=102.016 b=102.016 c=102.016 alpha=109.47 beta=109.47 gamma=109.47
+	Stripped ref parm: 2760 atoms, 176 res, box: Trunc. Oct., 2 mol
+  [reference /ix/lchong/dty7/hiv1_capsid/we/unbinding/2kod/std-prep/2kod_m01_solv.pdb :* name [REF]]
+	Reading '/ix/lchong/dty7/hiv1_capsid/we/unbinding/2kod/std-prep/2kod_m01_solv.pdb' as PDB
+	Read CRYST1 info from PDB: a=102.016 b=102.016 c=102.016 alpha=109.47 beta=109.47 gamma=109.47
+Warning: Low precision truncated octahedron angles detected (109.47 vs 109.471).
+Warning:   If desired, the 'box' command can be used during processing
+Warning:   to set higher-precision angles.
+Warning: PDB line length is short (67 chars, expected 80).
+Warning: PDB 2kod_m01_solv.pdb: Reading frame 28, got 185 atoms, expected 2760.
+Warning: Only using frames 1-27
+Warning: Reference has 27 frames, only reading frame 1
+	Read CRYST1 info from PDB: a=102.016 b=102.016 c=102.016 alpha=109.47 beta=109.47 gamma=109.47
+	Stripped ref parm: 2760 atoms, 176 res, box: Trunc. Oct., 2 mol
+  [rms NMR_RMS_FIT :6-75,94-163&!@H= ref [nmr]]
+    RMSD: (:6-75,94-163&!@H*), reference is "[nmr]:1" (:6-75,94-163&!@H*).
+	Best-fit RMSD will be calculated, coords will be rotated and translated.
+  [rms Fit_M2_NMR :94-163&!@H= ref [nmr]]
+    RMSD: (:94-163&!@H*), reference is "[nmr]:1" (:94-163&!@H*).
+	Best-fit RMSD will be calculated, coords will be rotated and translated.
+  [rms RMS_M1_NMR :6-75&!@H= ref [nmr] nofit mass time 1 out rms_m1_nmr.dat]
+    RMSD: (:6-75&!@H*), reference is "[nmr]:1" (:6-75&!@H*), mass-weighted.
+	No fitting will be performed.
+  [rms RMS_H9M1_NMR :36-49&!@H= nofit ref [nmr] out rms_h9m1_nmr.dat mass time 1]
+    RMSD: (:36-49&!@H*), reference is "[nmr]:1" (:36-49&!@H*), mass-weighted.
+	No fitting will be performed.
+  [rms Fit_M1_NMR :6-75&!@H= ref [nmr]]
+    RMSD: (:6-75&!@H*), reference is "[nmr]:1" (:6-75&!@H*).
+	Best-fit RMSD will be calculated, coords will be rotated and translated.
+  [rms RMS_M2_NMR :94-163&!@H= ref [nmr] nofit mass time 1 out rms_m2_nmr.dat]
+    RMSD: (:94-163&!@H*), reference is "[nmr]:1" (:94-163&!@H*), mass-weighted.
+	No fitting will be performed.
+  [rms RMS_H9M2_NMR :124-137&!@H= nofit ref [nmr] out rms_h9m2_nmr.dat mass time 1]
+    RMSD: (:124-137&!@H*), reference is "[nmr]:1" (:124-137&!@H*), mass-weighted.
+	No fitting will be performed.
+  [rms RMS_Heavy_NMR :6-75,94-163&!@H= ref [nmr] mass time 1 out rms_heavy_nmr.dat]
+    RMSD: (:6-75,94-163&!@H*), reference is "[nmr]:1" (:6-75,94-163&!@H*), mass-weighted.
+	Best-fit RMSD will be calculated, coords will be rotated and translated.
+  [rms RMS_Backbone_NMR :6-75,94-163@CA,C,O,N ref [nmr] mass time 1 out rms_bb_nmr.dat]
+    RMSD: (:6-75,94-163@CA,C,O,N), reference is "[nmr]:1" (:6-75,94-163@CA,C,O,N), mass-weighted.
+	Best-fit RMSD will be calculated, coords will be rotated and translated.
+  [rms RMS_Dimer_Int_NMR :7,8,34,35,37,38,41,42,45,46,49,95,96,122,123,125,126,129,130,133,134,137&!@H= ref [nmr] mass time 1 out rms_dimer_int_nmr.dat]
+    RMSD: (:7,8,34,35,37,38,41,42,45,46,49,95,96,122,123,125,126,129,130,133,134,137&!@H*), reference is "[nmr]:1" (:7,8,34,35,37,38,41,42,45,46,49,95,96,122,123,125,126,129,130,133,134,137&!@H*), mass-weighted.
+	Best-fit RMSD will be calculated, coords will be rotated and translated.
+  [rms RMS_Key_Int_NMR :38,41,42,126,129,130&!@H= ref [nmr] mass time 1 out rms_key_int_nmr.dat]
+    RMSD: (:38,41,42,126,129,130&!@H*), reference is "[nmr]:1" (:38,41,42,126,129,130&!@H*), mass-weighted.
+	Best-fit RMSD will be calculated, coords will be rotated and translated.
+  [rms Fit_M2_XTAL :94-163&!@H= ref [xtal]]
+    RMSD: (:94-163&!@H*), reference is "[xtal]:1" (:94-163&!@H*).
+	Best-fit RMSD will be calculated, coords will be rotated and translated.
+  [rms RMS_M1_XTAL :6-75&!@H= ref [xtal] nofit mass time 1 out rms_m1_xtal.dat]
+    RMSD: (:6-75&!@H*), reference is "[xtal]:1" (:6-75&!@H*), mass-weighted.
+	No fitting will be performed.
+  [rms RMS_H9M1_XTAL :36-49&!@H= nofit ref [xtal] out rms_h9m1_xtal.dat mass time 1]
+    RMSD: (:36-49&!@H*), reference is "[xtal]:1" (:36-49&!@H*), mass-weighted.
+	No fitting will be performed.
+  [rms Fit_M1_XTAL :6-75&!@H= ref [xtal]]
+    RMSD: (:6-75&!@H*), reference is "[xtal]:1" (:6-75&!@H*).
+	Best-fit RMSD will be calculated, coords will be rotated and translated.
+  [rms RMS_M2_XTAL :94-163&!@H= ref [xtal] nofit mass time 1 out rms_m2_xtal.dat]
+    RMSD: (:94-163&!@H*), reference is "[xtal]:1" (:94-163&!@H*), mass-weighted.
+	No fitting will be performed.
+  [rms RMS_H9M2_XTAL :124-137&!@H= nofit ref [xtal] out rms_h9m2_xtal.dat mass time 1]
+    RMSD: (:124-137&!@H*), reference is "[xtal]:1" (:124-137&!@H*), mass-weighted.
+	No fitting will be performed.
+  [rms RMS_Heavy_XTAL :6-75,94-163&!@H= ref [xtal] mass time 1 out rms_heavy_xtal.dat]
+    RMSD: (:6-75,94-163&!@H*), reference is "[xtal]:1" (:6-75,94-163&!@H*), mass-weighted.
+	Best-fit RMSD will be calculated, coords will be rotated and translated.
+  [rms RMS_Backbone_XTAL :6-75,94-163@CA,C,O,N ref [xtal] mass time 1 out rms_bb_xtal.dat]
+    RMSD: (:6-75,94-163@CA,C,O,N), reference is "[xtal]:1" (:6-75,94-163@CA,C,O,N), mass-weighted.
+	Best-fit RMSD will be calculated, coords will be rotated and translated.
+  [rms RMS_Dimer_Int_XTAL :7,8,34,35,37,38,41,42,45,46,49,95,96,122,123,125,126,129,130,133,134,137&!@H= ref [xtal] mass time 1 out rms_dimer_int_xtal.dat]
+    RMSD: (:7,8,34,35,37,38,41,42,45,46,49,95,96,122,123,125,126,129,130,133,134,137&!@H*), reference is "[xtal]:1" (:7,8,34,35,37,38,41,42,45,46,49,95,96,122,123,125,126,129,130,133,134,137&!@H*), mass-weighted.
+	Best-fit RMSD will be calculated, coords will be rotated and translated.
+  [rms RMS_Key_Int_XTAL :38,41,42,126,129,130&!@H= ref [xtal] mass time 1 out rms_key_int_xtal.dat]
+    RMSD: (:38,41,42,126,129,130&!@H*), reference is "[xtal]:1" (:38,41,42,126,129,130&!@H*), mass-weighted.
+	Best-fit RMSD will be calculated, coords will be rotated and translated.
+---------- RUN BEGIN -------------------------------------------------
+
+PARAMETER FILES (1 total):
+ 0: 2kod_m01_dry.prmtop, 2760 atoms, 176 res, box: Trunc. Oct., 2 mol
+
+INPUT TRAJECTORIES (1 total):
+ 0: '06_prod_dry_10i.nc' is a NetCDF AMBER trajectory with coordinates, time, box, Parm 2kod_m01_dry.prmtop (Trunc. Oct. box) (reading 20000 of 20000)
+  Coordinate processing will occur on 20000 frames.
+
+REFERENCE FRAMES (3 total):
+    0: [xtal]:1
+    1: [nmr]:1
+    2: [REF]:1
+	Active reference frame for distance-based masks is '[xtal]:1'
+
+PARALLEL INFO:
+  Process 0 will handle 2500 frames.
+  Process 1 will handle 2500 frames.
+  Process 2 will handle 2500 frames.
+  Process 3 will handle 2500 frames.
+  Process 4 will handle 2500 frames.
+  Process 5 will handle 2500 frames.
+  Process 6 will handle 2500 frames.
+  Process 7 will handle 2500 frames.
+.....................................................
+ACTION SETUP FOR PARM '2kod_m01_dry.prmtop' (21 actions):
+  0: [rms NMR_RMS_FIT :6-75,94-163&!@H= ref [nmr]]
+	Target mask: [:6-75,94-163&!@H*](1114)
+	Reference mask: [:6-75,94-163&!@H*](1114)
+Warning: Coordinates are being rotated and box coordinates are present.
+Warning: Unit cell vectors are NOT rotated; imaging will not be possible
+Warning:  after the RMS-fit is performed.
+  1: [rms Fit_M2_NMR :94-163&!@H= ref [nmr]]
+	Target mask: [:94-163&!@H*](557)
+	Reference mask: [:94-163&!@H*](557)
+Warning: Coordinates are being rotated and box coordinates are present.
+Warning: Unit cell vectors are NOT rotated; imaging will not be possible
+Warning:  after the RMS-fit is performed.
+  2: [rms RMS_M1_NMR :6-75&!@H= ref [nmr] nofit mass time 1 out rms_m1_nmr.dat]
+	Target mask: [:6-75&!@H*](557)
+	Reference mask: [:6-75&!@H*](557)
+  3: [rms RMS_H9M1_NMR :36-49&!@H= nofit ref [nmr] out rms_h9m1_nmr.dat mass time 1]
+	Target mask: [:36-49&!@H*](119)
+	Reference mask: [:36-49&!@H*](119)
+  4: [rms Fit_M1_NMR :6-75&!@H= ref [nmr]]
+	Target mask: [:6-75&!@H*](557)
+	Reference mask: [:6-75&!@H*](557)
+Warning: Coordinates are being rotated and box coordinates are present.
+Warning: Unit cell vectors are NOT rotated; imaging will not be possible
+Warning:  after the RMS-fit is performed.
+  5: [rms RMS_M2_NMR :94-163&!@H= ref [nmr] nofit mass time 1 out rms_m2_nmr.dat]
+	Target mask: [:94-163&!@H*](557)
+	Reference mask: [:94-163&!@H*](557)
+  6: [rms RMS_H9M2_NMR :124-137&!@H= nofit ref [nmr] out rms_h9m2_nmr.dat mass time 1]
+	Target mask: [:124-137&!@H*](119)
+	Reference mask: [:124-137&!@H*](119)
+  7: [rms RMS_Heavy_NMR :6-75,94-163&!@H= ref [nmr] mass time 1 out rms_heavy_nmr.dat]
+	Target mask: [:6-75,94-163&!@H*](1114)
+	Reference mask: [:6-75,94-163&!@H*](1114)
+Warning: Coordinates are being rotated and box coordinates are present.
+Warning: Unit cell vectors are NOT rotated; imaging will not be possible
+Warning:  after the RMS-fit is performed.
+  8: [rms RMS_Backbone_NMR :6-75,94-163@CA,C,O,N ref [nmr] mass time 1 out rms_bb_nmr.dat]
+	Target mask: [:6-75,94-163@CA,C,O,N](560)
+	Reference mask: [:6-75,94-163@CA,C,O,N](560)
+Warning: Coordinates are being rotated and box coordinates are present.
+Warning: Unit cell vectors are NOT rotated; imaging will not be possible
+Warning:  after the RMS-fit is performed.
+  9: [rms RMS_Dimer_Int_NMR :7,8,34,35,37,38,41,42,45,46,49,95,96,122,123,125,126,129,130,133,134,137&!@H= ref [nmr] mass time 1 out rms_dimer_int_nmr.dat]
+	Target mask: [:7,8,34,35,37,38,41,42,45,46,49,95,96,122,123,125,126,129,130,133,134,137&!@H*](178)
+	Reference mask: [:7,8,34,35,37,38,41,42,45,46,49,95,96,122,123,125,126,129,130,133,134,137&!@H*](178)
+Warning: Coordinates are being rotated and box coordinates are present.
+Warning: Unit cell vectors are NOT rotated; imaging will not be possible
+Warning:  after the RMS-fit is performed.
+  10: [rms RMS_Key_Int_NMR :38,41,42,126,129,130&!@H= ref [nmr] mass time 1 out rms_key_int_nmr.dat]
+	Target mask: [:38,41,42,126,129,130&!@H*](58)
+	Reference mask: [:38,41,42,126,129,130&!@H*](58)
+Warning: Coordinates are being rotated and box coordinates are present.
+Warning: Unit cell vectors are NOT rotated; imaging will not be possible
+Warning:  after the RMS-fit is performed.
+  11: [rms Fit_M2_XTAL :94-163&!@H= ref [xtal]]
+	Target mask: [:94-163&!@H*](557)
+	Reference mask: [:94-163&!@H*](557)
+Warning: Coordinates are being rotated and box coordinates are present.
+Warning: Unit cell vectors are NOT rotated; imaging will not be possible
+Warning:  after the RMS-fit is performed.
+  12: [rms RMS_M1_XTAL :6-75&!@H= ref [xtal] nofit mass time 1 out rms_m1_xtal.dat]
+	Target mask: [:6-75&!@H*](557)
+	Reference mask: [:6-75&!@H*](557)
+  13: [rms RMS_H9M1_XTAL :36-49&!@H= nofit ref [xtal] out rms_h9m1_xtal.dat mass time 1]
+	Target mask: [:36-49&!@H*](119)
+	Reference mask: [:36-49&!@H*](119)
+  14: [rms Fit_M1_XTAL :6-75&!@H= ref [xtal]]
+	Target mask: [:6-75&!@H*](557)
+	Reference mask: [:6-75&!@H*](557)
+Warning: Coordinates are being rotated and box coordinates are present.
+Warning: Unit cell vectors are NOT rotated; imaging will not be possible
+Warning:  after the RMS-fit is performed.
+  15: [rms RMS_M2_XTAL :94-163&!@H= ref [xtal] nofit mass time 1 out rms_m2_xtal.dat]
+	Target mask: [:94-163&!@H*](557)
+	Reference mask: [:94-163&!@H*](557)
+  16: [rms RMS_H9M2_XTAL :124-137&!@H= nofit ref [xtal] out rms_h9m2_xtal.dat mass time 1]
+	Target mask: [:124-137&!@H*](119)
+	Reference mask: [:124-137&!@H*](119)
+  17: [rms RMS_Heavy_XTAL :6-75,94-163&!@H= ref [xtal] mass time 1 out rms_heavy_xtal.dat]
+	Target mask: [:6-75,94-163&!@H*](1114)
+	Reference mask: [:6-75,94-163&!@H*](1114)
+Warning: Coordinates are being rotated and box coordinates are present.
+Warning: Unit cell vectors are NOT rotated; imaging will not be possible
+Warning:  after the RMS-fit is performed.
+  18: [rms RMS_Backbone_XTAL :6-75,94-163@CA,C,O,N ref [xtal] mass time 1 out rms_bb_xtal.dat]
+	Target mask: [:6-75,94-163@CA,C,O,N](560)
+	Reference mask: [:6-75,94-163@CA,C,O,N](560)
+Warning: Coordinates are being rotated and box coordinates are present.
+Warning: Unit cell vectors are NOT rotated; imaging will not be possible
+Warning:  after the RMS-fit is performed.
+  19: [rms RMS_Dimer_Int_XTAL :7,8,34,35,37,38,41,42,45,46,49,95,96,122,123,125,126,129,130,133,134,137&!@H= ref [xtal] mass time 1 out rms_dimer_int_xtal.dat]
+	Target mask: [:7,8,34,35,37,38,41,42,45,46,49,95,96,122,123,125,126,129,130,133,134,137&!@H*](178)
+	Reference mask: [:7,8,34,35,37,38,41,42,45,46,49,95,96,122,123,125,126,129,130,133,134,137&!@H*](178)
+Warning: Coordinates are being rotated and box coordinates are present.
+Warning: Unit cell vectors are NOT rotated; imaging will not be possible
+Warning:  after the RMS-fit is performed.
+  20: [rms RMS_Key_Int_XTAL :38,41,42,126,129,130&!@H= ref [xtal] mass time 1 out rms_key_int_xtal.dat]
+	Target mask: [:38,41,42,126,129,130&!@H*](58)
+	Reference mask: [:38,41,42,126,129,130&!@H*](58)
+Warning: Coordinates are being rotated and box coordinates are present.
+Warning: Unit cell vectors are NOT rotated; imaging will not be possible
+Warning:  after the RMS-fit is performed.
+
+BEGIN PARALLEL TRAJECTORY PROCESSING:
+ 0% 10% 20% 30% 40% 50% 60% 70% 80% 90% 100% Complete.
+TIME: Rank 0 throughput= 4357.3896 frames / second.
+TIME: Rank 1 throughput= 4367.8651 frames / second.
+TIME: Rank 2 throughput= 4364.3804 frames / second.
+TIME: Rank 3 throughput= 4374.6522 frames / second.
+TIME: Rank 4 throughput= 4359.0915 frames / second.
+TIME: Rank 5 throughput= 4359.5096 frames / second.
+TIME: Rank 6 throughput= 4370.2779 frames / second.
+TIME: Rank 7 throughput= 4361.2283 frames / second.
+TIME: Avg. throughput= 34858.6308 frames / second.
+
+ACTION OUTPUT:
+Warning: Analysis does not currently use multiple MPI processes.
+TIME: Analyses took 0.0000 seconds.
+
+DATASETS (21 total):
+	NMR_RMS_FIT "NMR_RMS_FIT" (double, rms), size is 20000 (160.000 kB)
+	Fit_M2_NMR "Fit_M2_NMR" (double, rms), size is 20000 (160.000 kB)
+	RMS_M1_NMR "RMS_M1_NMR" (double, rms), size is 20000 (160.000 kB)
+	RMS_H9M1_NMR "RMS_H9M1_NMR" (double, rms), size is 20000 (160.000 kB)
+	Fit_M1_NMR "Fit_M1_NMR" (double, rms), size is 20000 (160.000 kB)
+	RMS_M2_NMR "RMS_M2_NMR" (double, rms), size is 20000 (160.000 kB)
+	RMS_H9M2_NMR "RMS_H9M2_NMR" (double, rms), size is 20000 (160.000 kB)
+	RMS_Heavy_NMR "RMS_Heavy_NMR" (double, rms), size is 20000 (160.000 kB)
+	RMS_Backbone_NMR "RMS_Backbone_NMR" (double, rms), size is 20000 (160.000 kB)
+	RMS_Dimer_Int_NMR "RMS_Dimer_Int_NMR" (double, rms), size is 20000 (160.000 kB)
+	RMS_Key_Int_NMR "RMS_Key_Int_NMR" (double, rms), size is 20000 (160.000 kB)
+	Fit_M2_XTAL "Fit_M2_XTAL" (double, rms), size is 20000 (160.000 kB)
+	RMS_M1_XTAL "RMS_M1_XTAL" (double, rms), size is 20000 (160.000 kB)
+	RMS_H9M1_XTAL "RMS_H9M1_XTAL" (double, rms), size is 20000 (160.000 kB)
+	Fit_M1_XTAL "Fit_M1_XTAL" (double, rms), size is 20000 (160.000 kB)
+	RMS_M2_XTAL "RMS_M2_XTAL" (double, rms), size is 20000 (160.000 kB)
+	RMS_H9M2_XTAL "RMS_H9M2_XTAL" (double, rms), size is 20000 (160.000 kB)
+	RMS_Heavy_XTAL "RMS_Heavy_XTAL" (double, rms), size is 20000 (160.000 kB)
+	RMS_Backbone_XTAL "RMS_Backbone_XTAL" (double, rms), size is 20000 (160.000 kB)
+	RMS_Dimer_Int_XTAL "RMS_Dimer_Int_XTAL" (double, rms), size is 20000 (160.000 kB)
+	RMS_Key_Int_XTAL "RMS_Key_Int_XTAL" (double, rms), size is 20000 (160.000 kB)
+    Total data set memory usage is at least 3.360 MB
+
+DATAFILES (16 total):
+  rms_m1_nmr.dat (Standard Data File):  RMS_M1_NMR
+  rms_h9m1_nmr.dat (Standard Data File):  RMS_H9M1_NMR
+  rms_m2_nmr.dat (Standard Data File):  RMS_M2_NMR
+  rms_h9m2_nmr.dat (Standard Data File):  RMS_H9M2_NMR
+  rms_heavy_nmr.dat (Standard Data File):  RMS_Heavy_NMR
+  rms_bb_nmr.dat (Standard Data File):  RMS_Backbone_NMR
+  rms_dimer_int_nmr.dat (Standard Data File):  RMS_Dimer_Int_NMR
+  rms_key_int_nmr.dat (Standard Data File):  RMS_Key_Int_NMR
+  rms_m1_xtal.dat (Standard Data File):  RMS_M1_XTAL
+  rms_h9m1_xtal.dat (Standard Data File):  RMS_H9M1_XTAL
+  rms_m2_xtal.dat (Standard Data File):  RMS_M2_XTAL
+  rms_h9m2_xtal.dat (Standard Data File):  RMS_H9M2_XTAL
+  rms_heavy_xtal.dat (Standard Data File):  RMS_Heavy_XTAL
+  rms_bb_xtal.dat (Standard Data File):  RMS_Backbone_XTAL
+  rms_dimer_int_xtal.dat (Standard Data File):  RMS_Dimer_Int_XTAL
+  rms_key_int_xtal.dat (Standard Data File):  RMS_Key_Int_XTAL
+
+RUN TIMING:
+TIME:		Init               : 0.0061 s (  0.71%)
+TIME:		Trajectory Process : 0.5737 s ( 66.96%)
+TIME:		Data Set Sync      : 0.0038 s (  0.44%)
+TIME:		Action Post        : 0.0000 s (  0.00%)
+TIME:		Analysis           : 0.0000 s (  0.00%)
+TIME:		Data File Write    : 0.2729 s ( 31.85%)
+TIME:		Other              : 0.0003 s (  0.00%)
+TIME:	Run Total 0.8568 s
+---------- RUN END ---------------------------------------------------
+TIME: Total execution time: 0.9268 seconds.
+--------------------------------------------------------------------------------
+To cite CPPTRAJ use:
+Daniel R. Roe and Thomas E. Cheatham, III, "PTRAJ and CPPTRAJ: Software for
+  Processing and Analysis of Molecular Dynamics Trajectory Data". J. Chem.
+  Theory Comput., 2013, 9 (7), pp 3084-3095.
+Daniel R. Roe and Thomas E. Cheatham, III, "Parallelization of CPPTRAJ enables
+  large scale analysis of molecular dynamics trajectory data". J. Comp.
+  Chem., 2018, DOI: 10.1002/jcc25382.
+

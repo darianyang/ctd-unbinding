@@ -1,0 +1,10 @@
+source leaprc.protein.ff15ipq
+source leaprc.water.spce
+mol = loadpdb 1a43_leap.pdb
+charge mol
+addions mol Na+ 0
+addions mol Cl- 0
+solvateoct mol SPCBOX 13.13784
+saveamberparm mol 1a43_solv.prmtop 1a43_solv.inpcrd
+savepdb mol 1a43_solv.pdb
+quit

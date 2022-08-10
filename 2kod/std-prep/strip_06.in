@@ -1,0 +1,7 @@
+parm 2kod_m01_solv.prmtop
+trajin 06_prod.nc 1 last 10
+autoimage
+strip :WAT,Cl-,Na+ parmout 2kod_m01_dry.prmtop
+trajout 06_prod_dry_10i.nc
+go
+quit

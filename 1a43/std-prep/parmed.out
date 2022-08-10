@@ -1,0 +1,34 @@
+
+  ____    .---.  ,-----.  _____            
+.'    `,.':   :'' :    :.'     `.          
+| :   :    ' '     '  '   :   :  \         
+|  ' '                     ' '    \        
+|       v                          \       
+|       |       v                   \      
+|       |       |       v            \     
+|   P   |   A   |   R   |   M   |     \    
+|       |       |       |       |      \   
+|       |       |       |       |       \  
+|       |       |       |       |        \ 
+| ===== |       |       |       |         )
+ \ --- /| ===== |       |       |        / 
+  `---'  \ --- /| ===== | ===== |       /  
+          `---'  \ ---- A ----- /      /   
+                  `----'.`-----'      /    
+                       /             /     
+                       '-._    ED   /      
+                           '.      /       
+                             `----' 
+
+ParmEd: a Parameter file Editor
+
+
+['parmed.in']
+Reading actions from parmed.in
+
+Adding prmtop 1a43_solv.prmtop to parm list. 1a43_solv.prmtop is the active parm.
+Adding coordinates to 1a43_solv.prmtop from 1a43_solv.pdb
+Removing mask ':24160-24164' (15 atoms) from the topology file.
+Outputting Amber topology file 1a43_solv2.prmtop and restart 1a43_solv2.inpcrd
+Writing PDB file 1a43_solv2.pdb renumbering atoms and residues
+Done!

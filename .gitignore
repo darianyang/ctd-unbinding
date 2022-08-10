@@ -1,0 +1,16 @@
+.DS_Store
+.vscode
+~*.pptx
+__pycache__
+*.swp
+*.nc
+*.ncdf
+*.dcd
+traj_segs
+seg_logs
+*.h5
+*.h5*
+*prod.out
+traj_segs
+seg_logs
+mdcrd

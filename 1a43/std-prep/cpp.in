@@ -1,0 +1,3 @@
+parm 1a43_solv2.prmtop
+trajin 1a43_solv2.inpcrd
+trajout 1a43_solv3.pdb pdb
