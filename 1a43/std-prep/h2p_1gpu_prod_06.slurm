@@ -4,7 +4,7 @@
 #SBATCH --ntasks-per-node=1 
 #SBATCH --cluster=gpu 
 #SBATCH --gres=gpu:1
-#SBATCH --partition=gtx1080 
+#SBATCH --partition=a100 
 #SBATCH --time=144:00:00 
 #SBATCH --mail-user=dty7@pitt.edu
 #SBATCH --mail-type=END,FAIL
@@ -13,8 +13,14 @@
 
 # load appropriate modules.  First purge all modules then load in intel (a prereq for loading in amber) and then amber 
 module purge
-module load intel/2017.3.196
-module load amber/18
+
+#module load intel/2017.3.196
+#module load amber/18
+
+module load gcc/8.2.0
+module load openmpi/4.0.3
+module load amber/22
+
 
 # echo commands to stdout
 set -x
@@ -32,20 +38,21 @@ $SANDER  -O     -i   $INP   -p   $TOP   -c   $CRD   -r   $OUT.rst \
         -o   $OUT.out   -e   $OUT.ene   -v   $OUT.vel   -inf $OUT.nfo   -x   $OUT.nc &&
 
 # make cpptraj input file
-echo "parm $TOP"                            > strip_06.in
-echo "trajin 06_prod.nc"                                    >> strip_06.in
-echo "autoimage"                                            >> strip_06.in
-echo "strip :WAT,Cl- parmout 1a43_dry.prmtop"           >> strip_06.in
-echo "trajout 06_prod_dry.nc"                               >> strip_06.in
-echo "go"                                                   >> strip_06.in
-echo "quit"                                                 >> strip_06.in
+#echo "parm $TOP"                            > strip_06.in
+#echo "trajin 06_prod.nc"                                    >> strip_06.in
+#echo "autoimage"                                            >> strip_06.in
+#echo "strip :WAT,Cl- parmout 1a43_dry.prmtop"           >> strip_06.in
+#echo "trajout 06_prod_dry.nc"                               >> strip_06.in
+#echo "go"                                                   >> strip_06.in
+#echo "quit"                                                 >> strip_06.in
 
 # run cpptraj to strip water
 #cpptraj -i strip_06.in > strip_06.out
 
 # remove solvated nc file
-if [ -f "06_prod_dry.nc" ] ; then
-    rm 06_prod.nc &&
-    mv 06_prod_dry.nc 06_prod.nc
-fi
+#if [ -f "06_prod_dry.nc" ] ; then
+#    rm 06_prod.nc &&
+#    mv 06_prod_dry.nc 06_prod.nc
+#fi
 
+echo "DONE"

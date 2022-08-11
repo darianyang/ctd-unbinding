@@ -2,21 +2,88 @@ Warning: When compiling code please add the following flags to nvcc:
          -gencode arch=compute_35,code=[compute_35,sm_35] \
          -gencode arch=compute_61,code=[compute_61,sm_61] 
          -gencode arch=compute_70,code=[compute_70,sm_70] 
+Warning: When compiling code please add the following flags to nvcc:
+         -gencode arch=compute_35,code=[compute_35,sm_35] \
+         -gencode arch=compute_61,code=[compute_61,sm_61] 
+         -gencode arch=compute_70,code=[compute_70,sm_70] 
 + export 'DO_PARALLEL=mpirun -np 16'
 + DO_PARALLEL='mpirun -np 16'
 + SANDER=pmemd.MPI
 + PDB=1a43_solv2
 + printf '\nstart min\n\n'
 + mpirun -np 16 pmemd.MPI -O -i 02_min.in -o 02_min.out -p 1a43_solv2.prmtop -c 1a43_solv2.inpcrd -r 02_min.rst
-application called MPI_Abort(MPI_COMM_WORLD, 1) - process 0
+--------------------------------------------------------------------------
+The library attempted to open the following supporting CUDA libraries,
+but each of them failed.  CUDA-aware support is disabled.
+libcuda.so.1: cannot open shared object file: No such file or directory
+libcuda.dylib: cannot open shared object file: No such file or directory
+/usr/lib64/libcuda.so.1: cannot open shared object file: No such file or directory
+/usr/lib64/libcuda.dylib: cannot open shared object file: No such file or directory
+If you are not interested in CUDA-aware support, then run with
+--mca opal_warn_on_missing_libcuda 0 to suppress this message.  If you are interested
+in CUDA-aware support, then try setting LD_LIBRARY_PATH to the location
+of libcuda.so.1 to get passed this issue.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+MPI_ABORT was invoked on rank 0 in communicator MPI_COMM_WORLD
+with errorcode 1.
+
+NOTE: invoking MPI_ABORT causes Open MPI to kill all MPI processes.
+You may or may not see output from other processes, depending on
+exactly when Open MPI kills them.
+--------------------------------------------------------------------------
+[smp-n134.crc.pitt.edu:108506] 15 more processes have sent help message help-mpi-common-cuda.txt / dlopen failed
+[smp-n134.crc.pitt.edu:108506] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
 + printf '\nstart restrained system heat in\n\n'
 + mpirun -np 16 pmemd.MPI -O -i 03_eq1.in -o 03_eq1.out -p 1a43_solv2.prmtop -c 02_min.rst -r 03_eq1.rst -ref 02_min.rst
+--------------------------------------------------------------------------
+The library attempted to open the following supporting CUDA libraries,
+but each of them failed.  CUDA-aware support is disabled.
+libcuda.so.1: cannot open shared object file: No such file or directory
+libcuda.dylib: cannot open shared object file: No such file or directory
+/usr/lib64/libcuda.so.1: cannot open shared object file: No such file or directory
+/usr/lib64/libcuda.dylib: cannot open shared object file: No such file or directory
+If you are not interested in CUDA-aware support, then run with
+--mca opal_warn_on_missing_libcuda 0 to suppress this message.  If you are interested
+in CUDA-aware support, then try setting LD_LIBRARY_PATH to the location
+of libcuda.so.1 to get passed this issue.
+--------------------------------------------------------------------------
+[smp-n134.crc.pitt.edu:108579] 15 more processes have sent help message help-mpi-common-cuda.txt / dlopen failed
+[smp-n134.crc.pitt.edu:108579] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
 + printf '\ndone restrained system heat in\n\n'
 + printf '\nstart restrained equil\n\n'
 + mpirun -np 16 pmemd.MPI -O -i 04_eq2.in -o 04_eq2.out -p 1a43_solv2.prmtop -c 03_eq1.rst -r 04_eq2.rst -ref 03_eq1.rst
+--------------------------------------------------------------------------
+The library attempted to open the following supporting CUDA libraries,
+but each of them failed.  CUDA-aware support is disabled.
+libcuda.so.1: cannot open shared object file: No such file or directory
+libcuda.dylib: cannot open shared object file: No such file or directory
+/usr/lib64/libcuda.so.1: cannot open shared object file: No such file or directory
+/usr/lib64/libcuda.dylib: cannot open shared object file: No such file or directory
+If you are not interested in CUDA-aware support, then run with
+--mca opal_warn_on_missing_libcuda 0 to suppress this message.  If you are interested
+in CUDA-aware support, then try setting LD_LIBRARY_PATH to the location
+of libcuda.so.1 to get passed this issue.
+--------------------------------------------------------------------------
+[smp-n134.crc.pitt.edu:108686] 15 more processes have sent help message help-mpi-common-cuda.txt / dlopen failed
+[smp-n134.crc.pitt.edu:108686] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
 + printf '\ndone restrained equil\n\n'
 + printf '\nstart unrestrained equil\n\n'
 + mpirun -np 16 pmemd.MPI -O -i 05_eq3.in -o 05_eq3.out -p 1a43_solv2.prmtop -c 04_eq2.rst -r 05_eq3.rst
+--------------------------------------------------------------------------
+The library attempted to open the following supporting CUDA libraries,
+but each of them failed.  CUDA-aware support is disabled.
+libcuda.so.1: cannot open shared object file: No such file or directory
+libcuda.dylib: cannot open shared object file: No such file or directory
+/usr/lib64/libcuda.so.1: cannot open shared object file: No such file or directory
+/usr/lib64/libcuda.dylib: cannot open shared object file: No such file or directory
+If you are not interested in CUDA-aware support, then run with
+--mca opal_warn_on_missing_libcuda 0 to suppress this message.  If you are interested
+in CUDA-aware support, then try setting LD_LIBRARY_PATH to the location
+of libcuda.so.1 to get passed this issue.
+--------------------------------------------------------------------------
+[smp-n134.crc.pitt.edu:115777] 15 more processes have sent help message help-mpi-common-cuda.txt / dlopen failed
+[smp-n134.crc.pitt.edu:115777] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
 + printf '\ndone unrestrained equil\n\n'
 + printf '\nSUBMITTING PROD RUN\n'
 + sbatch h2p_1gpu_prod_06.slurm

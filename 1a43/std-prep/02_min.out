@@ -1,15 +1,16 @@
 
           -------------------------------------------------------
-          Amber 18 PMEMD                              2018
+          Amber 22 PMEMD                              2022
           -------------------------------------------------------
 
-| PMEMD implementation of SANDER, Release 18
+| PMEMD implementation of SANDER, Release 22
 
-| Run on 07/22/2022 at 15:02:17
+|  Compiled date/time: Thu Apr 14 14:06:37 2022
+| Run on 08/10/2022 at 13:44:03
 
 |   Executable path: pmemd.MPI
-| Working directory: /ix/lchong/dty7/hiv1_capsid/we/unbinding/1a43/std-prep
-|          Hostname: smp-n204
+| Working directory: /ix/lchong/dty7/hiv1_capsid/we/ctd-unbinding/1a43/std-prep
+|          Hostname: smp-n134
 
   [-O]verwriting output
 
@@ -27,9 +28,9 @@ File Assignments:
 |LOGFILE: logfile                                                               
 |  MDFRC: mdfrc                                                                 
 
- 
+
  Here is the input file:
- 
+
 Unrestrained 10000 step minimization, 500 SD                                   
 &cntrl                                                                         
   imin      = 1,                                                               
@@ -52,7 +53,7 @@ Unrestrained 10000 step minimization, 500 SD
 &end                                                                           
 
 
-Note: ig = -1. Setting random seed to   660305 based on wallclock time in
+Note: ig = -1. Setting random seed to   271575 based on wallclock time in
       microseconds and disabling the synchronization of random numbers 
       between tasks to improve performance.
 | irandom = 1, using AMBER's internal random number generator (default).
@@ -60,11 +61,10 @@ Note: ig = -1. Setting random seed to   660305 based on wallclock time in
  
 | Conditional Compilation Defines Used:
 | MPI
-| FFTW_FFT
+| PUBFFT
 | BINTRAJ
-| MKL
 | EMIL
- 
+
 | Largest sphere to fit in unit cell has radius =    41.649
 
 | New format PARM file being parsed.
