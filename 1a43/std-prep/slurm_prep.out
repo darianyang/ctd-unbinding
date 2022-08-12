@@ -2,6 +2,9 @@
 start min
 
 
+done min
+
+
 start restrained system heat in
 
 
@@ -21,4 +24,4 @@ done unrestrained equil
 
 
 SUBMITTING PROD RUN
-Submitted batch job 365325 on cluster gpu
+Submitted batch job 366214 on cluster gpu

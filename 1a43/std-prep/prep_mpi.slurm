@@ -3,7 +3,7 @@
 #SBATCH --nodes=1 
 #SBATCH --ntasks-per-node=16
 #SBATCH --cluster=smp
-#SBATCH --partition=smp 
+#SBATCH --partition=smp
 #SBATCH --time=71:59:59 
 #SBATCH --mail-user=dty7@pitt.edu
 #SBATCH --mail-type=END,FAIL
