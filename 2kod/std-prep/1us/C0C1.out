@@ -1,12 +1,12 @@
 
-CPPTRAJ: Trajectory Analysis. V4.14.0 (AmberTools V19.11) MPI
+CPPTRAJ: Trajectory Analysis. V6.4.4 (AmberTools) MPI
     ___  ___  ___  ___
      | \/ | \/ | \/ | 
     _|_/\_|_/\_|_/\_|_
 
 | Running on 8 processes.
-| Date/time: 08/10/22 13:03:17
-| Available memory: 192.079 GB
+| Date/time: 08/15/22 15:01:17
+| Available memory: 152.458 GB
 
 INPUT: Reading input from 'C0C1.cpp'
   [parm ../2kod_m01_dry.prmtop]
@@ -23,8 +23,7 @@ Warning:   to set higher-precision angles.
 Warning: PDB 1a43_solv3.pdb: Reading frame 28, got 185 atoms, expected 2760.
 Warning: Only using frames 1-27
 Warning: Reference has 27 frames, only reading frame 1
-	Read CRYST1 info from PDB: a=102.016 b=102.016 c=102.016 alpha=109.47 beta=109.47 gamma=109.47
-	Stripped ref parm: 2760 atoms, 176 res, box: Trunc. Oct., 2 mol
+	Stripped ref parm: 2760 atoms, 176 res, box: Truncated octahedron, 2 mol
 	Setting active reference for distance-based masks: '1a43_solv3.pdb'
   [reference /ix/lchong/dty7/hiv1_capsid/we/ctd-unbinding/2kod/std-prep/2kod_m01_solv.pdb :* name [nmr]]
 	Reading '/ix/lchong/dty7/hiv1_capsid/we/ctd-unbinding/2kod/std-prep/2kod_m01_solv.pdb' as PDB
@@ -36,8 +35,7 @@ Warning: PDB line length is short (67 chars, expected 80).
 Warning: PDB 2kod_m01_solv.pdb: Reading frame 28, got 185 atoms, expected 2760.
 Warning: Only using frames 1-27
 Warning: Reference has 27 frames, only reading frame 1
-	Read CRYST1 info from PDB: a=102.016 b=102.016 c=102.016 alpha=109.47 beta=109.47 gamma=109.47
-	Stripped ref parm: 2760 atoms, 176 res, box: Trunc. Oct., 2 mol
+	Stripped ref parm: 2760 atoms, 176 res, box: Truncated octahedron, 2 mol
   [reference /ix/lchong/dty7/hiv1_capsid/we/ctd-unbinding/2kod/std-prep/2kod_m01_solv.pdb :* name [REF]]
 	Reading '/ix/lchong/dty7/hiv1_capsid/we/ctd-unbinding/2kod/std-prep/2kod_m01_solv.pdb' as PDB
 	Read CRYST1 info from PDB: a=102.016 b=102.016 c=102.016 alpha=109.47 beta=109.47 gamma=109.47
@@ -48,8 +46,7 @@ Warning: PDB line length is short (67 chars, expected 80).
 Warning: PDB 2kod_m01_solv.pdb: Reading frame 28, got 185 atoms, expected 2760.
 Warning: Only using frames 1-27
 Warning: Reference has 27 frames, only reading frame 1
-	Read CRYST1 info from PDB: a=102.016 b=102.016 c=102.016 alpha=109.47 beta=109.47 gamma=109.47
-	Stripped ref parm: 2760 atoms, 176 res, box: Trunc. Oct., 2 mol
+	Stripped ref parm: 2760 atoms, 176 res, box: Truncated octahedron, 2 mol
   [rms NMR_RMS_FIT :6-75,94-163&!@H= ref [nmr]]
     RMSD: (:6-75,94-163&!@H*), reference is "[nmr]:1" (:6-75,94-163&!@H*).
 	Best-fit RMSD will be calculated, coords will be rotated and translated.
@@ -84,10 +81,10 @@ Warning: Reference has 27 frames, only reading frame 1
 ---------- RUN BEGIN -------------------------------------------------
 
 PARAMETER FILES (1 total):
- 0: 2kod_m01_dry.prmtop, 2760 atoms, 176 res, box: Trunc. Oct., 2 mol
+ 0: 2kod_m01_dry.prmtop, 2760 atoms, 176 res, box: Truncated octahedron, 2 mol
 
 INPUT TRAJECTORIES (1 total):
- 0: '06_prod_dry_10i.nc' is a NetCDF AMBER trajectory with coordinates, time, box, Parm 2kod_m01_dry.prmtop (Trunc. Oct. box) (reading 20000 of 20000)
+ 0: '06_prod_dry_10i.nc' is a NetCDF AMBER trajectory with coordinates, time, box, Parm 2kod_m01_dry.prmtop (Truncated octahedron box) (reading 20000 of 20000)
   Coordinate processing will occur on 20000 frames.
 
 REFERENCE FRAMES (3 total):
@@ -109,10 +106,8 @@ PARALLEL INFO:
 ACTION SETUP FOR PARM '2kod_m01_dry.prmtop' (12 actions):
   0: [rms NMR_RMS_FIT :6-75,94-163&!@H= ref [nmr]]
 	Target mask: [:6-75,94-163&!@H*](1114)
+	Reference topology: 2kod_m01_dry.prmtop
 	Reference mask: [:6-75,94-163&!@H*](1114)
-Warning: Coordinates are being rotated and box coordinates are present.
-Warning: Unit cell vectors are NOT rotated; imaging will not be possible
-Warning:  after the RMS-fit is performed.
   1: [vector M1 :1-75@CA,C,O,N :39@CA,C,O,N]
 	Mask [:1-75@CA,C,O,N] corresponds to 300 atoms.
 	Mask [:39@CA,C,O,N] corresponds to 4 atoms.
@@ -140,15 +135,15 @@ Warning:  after the RMS-fit is performed.
 
 BEGIN PARALLEL TRAJECTORY PROCESSING:
  0% 10% 20% 30% 40% 50% 60% 70% 80% 90% 100% Complete.
-TIME: Rank 0 throughput= 19660.1159 frames / second.
-TIME: Rank 1 throughput= 19764.0958 frames / second.
-TIME: Rank 2 throughput= 19791.7904 frames / second.
-TIME: Rank 3 throughput= 19918.0968 frames / second.
-TIME: Rank 4 throughput= 19723.2434 frames / second.
-TIME: Rank 5 throughput= 19803.5488 frames / second.
-TIME: Rank 6 throughput= 19820.6626 frames / second.
-TIME: Rank 7 throughput= 19769.0969 frames / second.
-TIME: Avg. throughput= 157273.5065 frames / second.
+TIME: Rank 0 throughput= 3365.7205 frames / second.
+TIME: Rank 1 throughput= 3296.3613 frames / second.
+TIME: Rank 2 throughput= 3231.6610 frames / second.
+TIME: Rank 3 throughput= 3232.3880 frames / second.
+TIME: Rank 4 throughput= 2950.4130 frames / second.
+TIME: Rank 5 throughput= 3015.6634 frames / second.
+TIME: Rank 6 throughput= 2783.4188 frames / second.
+TIME: Rank 7 throughput= 3248.3985 frames / second.
+TIME: Avg. throughput= 22267.2516 frames / second.
 
 ACTION OUTPUT:
 Warning: Analysis does not currently use multiple MPI processes.
@@ -157,7 +152,7 @@ ANALYSIS: Performing 1 analyses:
   0: [vectormath vec1 M1 vec2 M2 out c2_angle.dat name C2_Angle dotangle]
 	'M1' size 20000, 'M2' size 20000, output size 20000
 
-TIME: Analyses took 0.0006 seconds.
+TIME: Analyses took 0.0009 seconds.
 
 DATASETS (15 total):
 	NMR_RMS_FIT "NMR_RMS_FIT" (double, rms), size is 20000 (160.000 kB)
@@ -190,17 +185,17 @@ DATAFILES (10 total):
   rog-all-mw.dat (Standard Data File):  rog-all-mw rog-all-mw[Max]
 
 RUN TIMING:
-TIME:		Init               : 0.0018 s (  0.47%)
-TIME:		Trajectory Process : 0.1272 s ( 33.15%)
-TIME:		Data Set Sync      : 0.0373 s (  9.74%)
+TIME:		Init               : 0.0018 s (  0.13%)
+TIME:		Trajectory Process : 0.8982 s ( 67.45%)
+TIME:		Data Set Sync      : 0.2038 s ( 15.31%)
 TIME:		Action Post        : 0.0000 s (  0.00%)
-TIME:		Analysis           : 0.0006 s (  0.16%)
-TIME:		Data File Write    : 0.2165 s ( 56.43%)
+TIME:		Analysis           : 0.0009 s (  0.07%)
+TIME:		Data File Write    : 0.2267 s ( 17.02%)
 TIME:		Other              : 0.0002 s (  0.00%)
-TIME:	Run Total 0.3836 s
+TIME:	Run Total 1.3315 s
 ---------- RUN END ---------------------------------------------------
   [quit]
-TIME: Total execution time: 0.4510 seconds.
+TIME: Total execution time: 1.6953 seconds.
 --------------------------------------------------------------------------------
 To cite CPPTRAJ use:
 Daniel R. Roe and Thomas E. Cheatham, III, "PTRAJ and CPPTRAJ: Software for

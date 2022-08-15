@@ -12,3 +12,5 @@ Warning: When compiling code please add the following flags to nvcc:
 + CRD=05_eq3.rst
 + OUT=06_prod
 + pmemd.cuda -O -i 06_prod.in -p 1a43_solv2.prmtop -c 05_eq3.rst -r 06_prod.rst -o 06_prod.out -e 06_prod.ene -v 06_prod.vel -inf 06_prod.nfo -x 06_prod.nc
+Note: The following floating-point exceptions are signalling: IEEE_UNDERFLOW_FLAG IEEE_DENORMAL
++ echo DONE

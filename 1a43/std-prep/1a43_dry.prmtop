@@ -1,4 +1,4 @@
-%VERSION  VERSION_STAMP = V0001.000  DATE = 08/09/22 14:43:50                  
+%VERSION  VERSION_STAMP = V0001.000  DATE = 08/15/22 14:43:31                  
 %FLAG TITLE                                                                     
 %FORMAT(20a4)                                                                   
 default_name                                                                    
@@ -14289,7 +14289,7 @@ BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA
     1380    1380
 %FLAG BOX_DIMENSIONS                                                            
 %FORMAT(5E16.8)                                                                 
-  1.09471219E+02  9.88043525E+01  9.88043525E+01  9.88043525E+01
+  1.09471219E+02  9.86867103E+01  9.86867103E+01  9.86867103E+01
 %FLAG RADIUS_SET                                                                
 %FORMAT(1a80)                                                                   
 modified Bondi radii (mbondi)                                                   
