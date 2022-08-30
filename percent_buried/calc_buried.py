@@ -30,7 +30,7 @@ def calc_per_residue_sasa(pdb):
 
     return sasa
 
-def calc_percent_buried(ctd_name):
+def calc_percent_buried(ctd_name, ax):
     """
     Take the difference of the per-residue SASA.
 
@@ -46,12 +46,15 @@ def calc_percent_buried(ctd_name):
     # convert from nm^2 to A^2
     diff_sasa = diff_sasa * 10**2
 
-    plt.bar(range(144,232), diff_sasa)
-    plt.ylabel("Buried In Dimer ($\AA$)")
-    plt.xlabel("Residue")
-    plt.title(ctd_name)
-    plt.show()
+    ax.bar(range(144,232), diff_sasa)
+    ax.set_ylabel("Buried In Dimer ($\AA$)")
+    ax.set_xlabel("Residue")
+    ax.set_title(ctd_name)
+    
     print(dict(zip(range(144,232), diff_sasa)))
     return diff_sasa
 
-sasa = calc_percent_buried("2kod")
+fig, ax = plt.subplots(figsize=(9,4), ncols=2, sharey=True)
+calc_percent_buried("2kod", ax[0])
+calc_percent_buried("1a43", ax[1])
+plt.show()
