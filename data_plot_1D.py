@@ -189,14 +189,14 @@ def plot_multiple_reps(dataname, ylim, ylabel, time_units=10**4, dist=(0,5,1),
         fig.savefig(f"figures/{savefig}", dpi=300, transparent=True)
     plt.show()
 
-def basic_plot(dataname, sys, ylim=None, ylabel=None, time_units=10**4, dist=(0,5,1), 
+def basic_plot(dataname, sys, ylim=None, ylabel=None, time_units=10**4, dist=(0,0.5,0.1), 
                ax=None):
     data = pre_processing(f"{sys}/std-prep/1us/{dataname}", time_units=time_units)
     line_plot(data[0], data[1], ax=ax, ylim=ylim, ylabel=ylabel,
               alpha=0.85, dist=dist, label=sys)
 
 fig, ax = plt.subplots(ncols=2, sharey=True, gridspec_kw={'width_ratios' : [20, 5]})
-basic_plot("c2_angle.dat", "2kod", (0,100), "Backbone RMSD ($\AA$)", time_units=100000, ax=ax)
-basic_plot("c2_angle.dat", "1a43", (0,100), "Backbone RMSD ($\AA$)", time_units=100000, ax=ax)
+basic_plot("c2_angle.dat", "2kod", (0,100), "Helical Angle (°)", time_units=100000, ax=ax)
+basic_plot("c2_angle.dat", "1a43", (0,100), "Helical Angle (°)", time_units=100000, ax=ax)
 plt.tight_layout()
 plt.show()
