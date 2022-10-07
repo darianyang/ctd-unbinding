@@ -1,8 +1,8 @@
 #!/bin/bash
-#SBATCH --job-name=2kod_1d_we_c2-20-100_v01
+#SBATCH --job-name=2kod_ctd-unbinding_2d_v00
 #SBATCH --output=job_logs/%j_slurm.out
 #SBATCH --error=job_logs/%j_slurm.err
-#SBATCH --nodes=2
+#SBATCH --nodes=1
 #SBATCH --ntasks-per-node=4
 #SBATCH --cluster=gpu
 #SBATCH --partition=gtx1080

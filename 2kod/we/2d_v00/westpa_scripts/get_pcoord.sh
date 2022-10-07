@@ -35,8 +35,8 @@ echo -e "$CMD" | cpptraj #$CPPTRAJ
 #rm -v $TMP
 
 # based on the final frame value
-m1_rms=$(cat pcoord.dat | tail -1 | awk '{print $1}')
-m2_rms=$(cat pcoord.dat | tail -1 | awk '{print $2}')
+m1_rms=$(cat pcoord.dat | tail -1 | awk '{print $2}')
+m2_rms=$(cat pcoord.dat | tail -1 | awk '{print $3}')
 
 echo M1: $m1_rms and M2: $m2_rms
 
