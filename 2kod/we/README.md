@@ -19,3 +19,31 @@
 
 2d_v01:
     * Same as before but with the 1st pcoord as the RMSD of both W184 and M185 pairs.
+    * got some recycling events with this setup!
+    * but the images are not imaged well, so strange values and events were present.
+
+2d_v02:
+    * Same as v01 but with a better autoimaging setup
+    * from the autoimage cpptraj man page, for something like a protein dimer:
+        * it is best to choose something in the middle of the interface, like a single residue
+        * e.g. residue V181 (resid 38)
+    * fixed the stripped rst output
+    * using amber 22 (a100s)
+        * needed to stop hard linking amber18 executables in env.sh
+    
+1d_v00:
+    * using 2d_v02 template, but now only using COM distance as pcoord and increasing number of MAB bins
+    * Saving coords every 10 ps for efficiency
+    * Using 8 walkers per bin instead of 5
+    * 20 1d bins instead of 5x5 2d
+    * fixed pcoord 1 and 2 saved to aux naming
+
+2d_v03:
+    * using 1d_v00 as template
+    * running 5 x 5 2d MAB with 8 walkers per bin
+    * I still had some imaging issues, I think it is due to the dimers separating too much, then the center of the box is no longer the interface residue choosen. I will need to use unwrap and COM based imaging.
+    * Had to truncate from 372 to 250 since recycling didn't work since I used -inf and inf for int ene bin. 
+
+2d_v04:
+    * using 2d_v03 as template
+    * updated imaging to use unwrap and center on dimer COM then image
