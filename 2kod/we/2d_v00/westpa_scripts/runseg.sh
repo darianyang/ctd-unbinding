@@ -15,10 +15,10 @@ ln -sv $WEST_SIM_ROOT/common_files/$PRMTOP .
 
 if [ "$WEST_CURRENT_SEG_INITPOINT_TYPE" = "SEG_INITPOINT_CONTINUES" ]; then
   sed "s/RAND/$WEST_RAND16/g" $WEST_SIM_ROOT/common_files/md.in > md.in
-  ln -sv $WEST_PARENT_DATA_REF/seg.rst ./parent.rst
+  ln -sv $WEST_PARENT_DATA_REF/seg.ncrst ./parent.ncrst
 elif [ "$WEST_CURRENT_SEG_INITPOINT_TYPE" = "SEG_INITPOINT_NEWTRAJ" ]; then
   sed "s/RAND/$WEST_RAND16/g" $WEST_SIM_ROOT/common_files/md.in > md.in
-  ln -sv $WEST_PARENT_DATA_REF ./parent.rst
+  ln -sv $WEST_PARENT_DATA_REF ./parent.ncrst
 fi
 
 export CUDA_DEVICES=(`echo $CUDA_VISIBLE_DEVICES_ALLOCATED | tr , ' '`)
@@ -28,16 +28,16 @@ echo "RUNSEG.SH: CUDA_VISIBLE_DEVICES_ALLOCATED = " $CUDA_VISIBLE_DEVICES_ALLOCA
 echo "RUNSEG.SH: WM_PROCESS_INDEX = " $WM_PROCESS_INDEX
 echo "RUNSEG.SH: CUDA_VISIBLE_DEVICES = " $CUDA_VISIBLE_DEVICES
 
-$PMEMD -O -i md.in   -p $PRMTOP  -c parent.rst \
-          -r seg.rst -x seg.nc  -o seg.log   -inf seg.nfo
+$PMEMD -O -i md.in   -p $PRMTOP  -c parent.ncrst \
+          -r seg.ncrst -x seg.nc  -o seg.log   -inf seg.nfo
 
 # cpptraj input
 CMD="     parm $WEST_SIM_ROOT/common_files/$PRMTOP \n" 
-CMD="$CMD trajin ./parent.rst \n"
+CMD="$CMD trajin $WEST_CURRENT_SEG_DATA_REF/parent.ncrst \n"
 CMD="$CMD trajin $WEST_CURRENT_SEG_DATA_REF/seg.nc \n"
-CMD="$CMD reference $WEST_SIM_ROOT/bstates/05_eq3.rst name [ref] \n"
-CMD="$CMD reference /bgfs/lchong/dty7/hiv1_capsid/std/2kod/hi_pH/v00/m01_2kod_12A.pdb :* name [nmr] \n"
-CMD="$CMD reference /bgfs/lchong/dty7/hiv1_capsid/std/1a43/hi_pH/v00/1A43_solv.pdb :* name [xtal] \n"
+CMD="$CMD reference $WEST_SIM_ROOT/bstates/05_eq3.ncrst name [ref] \n"
+CMD="$CMD reference /ix/lchong/dty7/hiv1_capsid/ctd-unbinding/2kod/std-prep/2kod_m01_solv.pdb :* name [nmr] \n"
+CMD="$CMD reference /ix/lchong/dty7/hiv1_capsid/ctd-unbinding/1a43/std-prep/1a43_solv.pdb :* name [xtal] \n"
 CMD="$CMD autoimage \n"
 
 # PCOORD CALC:
@@ -133,14 +133,27 @@ CMD="     parm $WEST_SIM_ROOT/common_files/$PRMTOP \n"
 CMD="$CMD trajin $WEST_CURRENT_SEG_DATA_REF/seg.nc \n"
 CMD="$CMD autoimage \n"
 # strip and replace solv nc file, make seperate stripped rst file but keep solved
-CMD="$CMD strip :WAT,Cl-,Na+ parmout $WEST_CURRENT_SEG_DATA_REF/seg-nowat.rst \n"
+CMD="$CMD strip :WAT,Cl-,Na+ parmout $WEST_CURRENT_SEG_DATA_REF/seg-nowat.ncrst \n"
 CMD="$CMD trajout $WEST_CURRENT_SEG_DATA_REF/seg-nowat.nc \n"
 CMD="$CMD go \n"
 
 echo -e "$CMD" | $CPPTRAJ
 
 ### PCOORD ###
-paste <(cat 1_75_39_c2.dat | tail -n +2 | awk {'print $2'}) > $WEST_PCOORD_RETURN
+# based on the final frame value
+m1_rms=$(cat pcoord.dat | tail -1 | awk '{print $2}')
+m2_rms=$(cat pcoord.dat | tail -1 | awk '{print $3}')
+
+echo M1: $m1_rms and M2: $m2_rms
+
+# save either m1 or m2 rmsd, whichever is larger
+if [[ $(echo "if (${m1_rms} > ${m2_rms}) 1 else 0" | bc) -eq 1 ]]; then
+    echo "${m1_rms} > ${m2_rms}"
+    paste <(cat pcoord.dat | tail -n +2 | awk '{print $2}') <(cat pcoord.dat | tail -n +2 | awk '{print $4}') <(cat pcoord.dat | tail -n +2 | awk '{print $7}') > $WEST_PCOORD_RETURN
+else
+    echo "${m1_rms} <= ${m2_rms}"
+    paste <(cat pcoord.dat | tail -n +2 | awk '{print $3}') <(cat pcoord.dat | tail -n +2 | awk '{print $4}') <(cat pcoord.dat | tail -n +2 | awk '{print $7}') > $WEST_PCOORD_RETURN
+fi
 
 ### AUXDATA ###
 
@@ -210,7 +223,7 @@ cat m1_sasa_mdt.dat > $WEST_M1_SASA_MDT_RETURN
 cat m2_sasa_mdt.dat > $WEST_M2_SASA_MDT_RETURN
 
 # Clean up
-rm -f md.in $PRMTOP parent.rst seg.nfo seg.pdb *.dat* 
+rm -f md.in $PRMTOP parent.ncrst seg.nfo seg.pdb *.dat* 
 
 # remove and replace solvated segment trajectory file
 if [ -f "seg-nowat.nc" ]; then

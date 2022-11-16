@@ -14,3 +14,8 @@
         * 5 x 5 bins = 25 bins
         * 5 walkers per bin
         * 125 walkers with full bin occupancy
+    * Results:
+        * Didn't fully unbind, once one side of the W184 and M185 pair unbound the other wasn't focused on due to the nature of the pcoord. To remedy this, I could try with the smaller of the RMSD values, which may encourage both to unbind but will be troublesome if it is a stepwise pathway. I then think it would be best to use the general RMSD of both W184 and M185 pairs, so it can be tracked together and small changes in either are encouraged but not forced.
+
+2d_v01:
+    * Same as before but with the 1st pcoord as the RMSD of both W184 and M185 pairs.
