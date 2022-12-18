@@ -3,9 +3,9 @@
 #SBATCH --output=job_logs/%j_slurm.out
 #SBATCH --error=job_logs/%j_slurm.err
 #SBATCH --nodes=1
-#SBATCH --ntasks-per-node=4
+#SBATCH --ntasks-per-node=8
 #SBATCH --cluster=gpu
-#SBATCH --partition=a100
+#SBATCH --partition=a100_nvlink
 #SBATCH --gres=gpu:4
 #SBATCH --mem=16g
 #SBATCH --time=72:00:00
@@ -46,7 +46,7 @@ scontrol show hostname $SLURM_NODELIST >& $WEST_SIM_ROOT/job_logs/SLURM_NODELIST
 
 # change --n-workers to # gpus for each node (--ntasks-per-node)
 for node in $(scontrol show hostname $SLURM_NODELIST); do
-    ssh -o StrictHostKeyChecking=no $node $PWD/node.sh $SLURM_SUBMIT_DIR $SLURM_JOBID $node $CUDA_VISIBLE_DEVICES --work-manager=zmq --n-workers=4 --zmq-mode=client --zmq-read-host-info=$SERVER_INFO --zmq-comm-mode=tcp &
+    ssh -o StrictHostKeyChecking=no $node $PWD/node.sh $SLURM_SUBMIT_DIR $SLURM_JOBID $node $CUDA_VISIBLE_DEVICES --work-manager=zmq --n-workers=8 --zmq-mode=client --zmq-read-host-info=$SERVER_INFO --zmq-comm-mode=tcp &
 done
 
 

@@ -1,0 +1,5 @@
+Updating system with the options from the configuration file
+-- ERROR    [westpa.work_managers.zeromq.core.ZMQWorker.25010d2b-9a10-4e68-8410-1f66b03556e3] -- message validation falied: 
+-- ERROR    [westpa.work_managers.zeromq.core.ZMQWorker.858c1aa2-3566-4c7b-b185-3e63d8a5f9d4] -- message validation falied: 
+-- ERROR    [westpa.work_managers.zeromq.core.ZMQWorker.4df5b12e-e5bb-4717-b8d4-027d040db426] -- message validation falied: 
+-- ERROR    [westpa.work_managers.zeromq.core.ZMQWorker.ef567d26-d6a5-4849-bb48-2ad5cdd694d5] -- message validation falied: 

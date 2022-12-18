@@ -66,7 +66,7 @@ def concat_iter(trace, top, out_path=None):
     paths = [f"traj_segs/{it:06d}/{wlk:06d}/seg.nc" for it, wlk in trace]    
 
     # load all segment trajectories for trace into Universe object
-    trace_traj = mda.Universe(top, paths, in_memory=True, in_memory_step=10)
+    trace_traj = mda.Universe(top, paths, in_memory=True, in_memory_step=1)
 
     if out_path:
         protein = trace_traj.select_atoms("protein")
@@ -76,11 +76,11 @@ def concat_iter(trace, top, out_path=None):
 
     return trace_traj
 
-WE = "2d_v03"
+WE = "1d_v04"
 os.chdir(WE)
 
-trace = trace_walker((384, 8), "west.h5")
-concat_iter(trace, f"common_files/2kod_m01_dry.prmtop", out_path="traced_traj/384_8.ncdf")
+trace = trace_walker((450, 12), "west.h5")
+concat_iter(trace, f"common_files/2kod_m01_dry.prmtop", out_path="traced_traj/450_12.ncdf")
 
 # TODO: need to use cpptraj autoimage and maybe rms fit to tame the unweildly output
 # add this to the trace walker function through os commands?

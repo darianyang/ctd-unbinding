@@ -1,0 +1,19 @@
+
+CPPTRAJ: Trajectory Analysis. V6.4.4 (AmberTools)
+    ___  ___  ___  ___
+     | \/ | \/ | \/ | 
+    _|_/\_|_/\_|_/\_|_
+
+| Date/time: 12/14/22 16:01:56
+| Available memory: 9.511 GB
+
+INPUT: Reading input from 'STDIN'
+  [parm /ihome/lchong/dty7/ix/ctd-unbinding/2kod/we/1d_v06/common_files/2kod_m01_solv.prmtop]
+	Reading '/ihome/lchong/dty7/ix/ctd-unbinding/2kod/we/1d_v06/common_files/2kod_m01_solv.prmtop' as Amber Topology
+	Radius Set: modified Bondi radii (mbondi)
+  [trajin /ihome/lchong/dty7/ix/ctd-unbinding/2kod/we/1d_v06/bstates/05_eq3.rst]
+	Reading '/ihome/lchong/dty7/ix/ctd-unbinding/2kod/we/1d_v06/bstates/05_eq3.rst' as Amber NC Restart
+  [trajin /ihome/lchong/dty7/ix/ctd-unbinding/2kod/we/1d_v06/test_runseg/seg.nc]
+	Reading '/ihome/lchong/dty7/ix/ctd-unbinding/2kod/we/1d_v06/test_runseg/seg.nc' as Amber NetCDF
+TIME: Total execution time: 0.0890 seconds.
+

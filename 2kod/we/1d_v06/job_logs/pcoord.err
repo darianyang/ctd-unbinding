@@ -1,0 +1,6 @@
+Error: Number of atoms in NetCDF file (2760) does not match number
+Error:  in associated topology (74705)!
+Error: Could not set up '/ihome/lchong/dty7/ix/ctd-unbinding/2kod/we/1d_v06/test_runseg/seg.nc' for reading.
+Error: Could not set up input trajectory '/ihome/lchong/dty7/ix/ctd-unbinding/2kod/we/1d_v06/test_runseg/seg.nc'.
+	1 errors encountered reading input.
+Error: Error(s) occurred during execution.
