@@ -96,4 +96,5 @@
     * maybe using the new tstate file recycling will work here
     * now using 30 for first MAB bin and 5 for second MAB bin
     * also including the W184 to opposing monomer distances as aux data
+        * that is, the W184 to opposing monomer distance matrices
 
