@@ -11,11 +11,11 @@ I hope to:
 import wedap
 import matplotlib.pyplot as plt
 
-# X, Y, Z = wedap.H5_Pdist("ctdub_2d_v04.h5", "average", Xindex=1, Yname="pcoord", Yindex=2, 
-#                          data_proc=lambda X : X[::1,:]).pdist()
-X, Y, Z = wedap.H5_Pdist("ctdub_2d_v04.h5", "evolution", Xindex=1, 
-                         data_proc=lambda X : X[::1,:]).pdist()                         
+X, Y, Z = wedap.H5_Pdist("ctdub_2d_v04.h5", "average", Xindex=1, Yname="pcoord", Yindex=2, 
+                         data_proc=lambda X : X[::1,:]).pdist()
+# X, Y, Z = wedap.H5_Pdist("ctdub_2d_v04.h5", "evolution", Xindex=1, 
+#                          data_proc=lambda X : X[::1,:]).pdist()                         
 plot = wedap.H5_Plot(X, Y, Z)
 plot.plot()
-plot.ax.set_xlabel("COM Distance ($\AA$)")
+#plot.ax.set_xlabel("COM Distance ($\AA$)")
 plt.show()
