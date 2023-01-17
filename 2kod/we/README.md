@@ -98,3 +98,13 @@
     * also including the W184 to opposing monomer distances as aux data
         * that is, the W184 to opposing monomer distance matrices
 
+ml_v00:
+    * from 1d_v06 as template
+    * this uses the weighted average of the W184 (M2) to M1 residue distances as pcoord
+        * instead of before, using the COM M1-M2 distance
+    * so still a 1D pcoord, 30 MAB bins 0-inf
+        * and 2nd skipped pcoord for recycling (>6A min contact distance)
+        * updated tstate.file since don't need two recycling bins anymore
+    * 4 walkers per bin
+    * RESULT after 500i: didn't work too well...
+        * perhaps if I use the product of the M1W184 and M2W184 dmat weighted avgs?
