@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --job-name=mlv00_ctd-unbinding_2kod
+#SBATCH --job-name=mlv01_ctd-unbinding_2kod
 #SBATCH --output=job_logs/%j_slurm.out
 #SBATCH --error=job_logs/%j_slurm.err
 #SBATCH --nodes=1

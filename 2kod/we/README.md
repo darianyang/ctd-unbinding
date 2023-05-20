@@ -108,3 +108,19 @@ ml_v00:
     * 4 walkers per bin
     * RESULT after 500i: didn't work too well...
         * perhaps if I use the product of the M1W184 and M2W184 dmat weighted avgs?
+
+ml_v01:
+    * ml_v00 as template
+    * added the other set of W184 to opposing monomer residues 1D distance matrix
+    * using both weighted averages (product of them) as the new pcoord
+
+ml_v02:
+    * used ml_v01 as template
+    * updated weights to sum of squares based ml_pcoord with 50 n_succ
+    * using the weighted difference matrix at each timepoint
+        * and adding a zero to the first element
+    * still taking the product of the m1w184-m2 and m2w184-m1 w_avg values
+
+ml_v03 :
+    * ml_v02 as template
+    * using ml_pcoord and com distance with mab in each

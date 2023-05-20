@@ -180,8 +180,11 @@ echo -e "$CMD" | $CPPTRAJ
 #paste <(cat pcoord.dat | tail -n +2 | awk '{print $3}') <(cat pcoord.dat | tail -n +2 | awk '{print $6}') > $WEST_PCOORD_RETURN
 
 # calc weighted avgs
-python $WEST_SIM_ROOT/common_files/weighted_dmat_pcoord.py m2w184_m1_dmat.dat $WEST_SIM_ROOT/common_files/m2w184_m1_dmat_weights.txt
-paste <(cat w_avgs.txt) <(cat pcoord.dat | tail -n +2 | awk '{print $6}') > $WEST_PCOORD_RETURN
+python $WEST_SIM_ROOT/common_files/weighted_dmat_pcoord.py m1w184_m2_dmat.dat $WEST_SIM_ROOT/common_files/m1w184_m2_dmat_weights.txt w_avgs_m1.txt
+python $WEST_SIM_ROOT/common_files/weighted_dmat_pcoord.py m2w184_m1_dmat.dat $WEST_SIM_ROOT/common_files/m2w184_m1_dmat_weights.txt w_avgs_m2.txt
+# calc pdt of the weighted avgs
+python $WEST_SIM_ROOT/scripts/calc_pdt.py w_avgs_m1.txt w_avgs_m2.txt w_avgs_pdt.txt
+paste <(cat w_avgs_pdt.txt) <(cat pcoord.dat | tail -n +2 | awk '{print $6}') > $WEST_PCOORD_RETURN
 
 ### AUXDATA ###
 

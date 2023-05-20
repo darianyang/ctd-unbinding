@@ -76,11 +76,11 @@ def concat_iter(trace, top, out_path=None):
 
     return trace_traj
 
-WE = "1d_v04"
+WE = "1d_v06"
 os.chdir(WE)
 
-trace = trace_walker((450, 12), "west.h5")
-concat_iter(trace, f"common_files/2kod_m01_dry.prmtop", out_path="traced_traj/450_12.ncdf")
+trace = trace_walker((500, 29), "west.h5")
+concat_iter(trace, f"common_files/2kod_m01_dry.prmtop", out_path="traced_traj/500_29.ncdf")
 
 # TODO: need to use cpptraj autoimage and maybe rms fit to tame the unweildly output
 # add this to the trace walker function through os commands?

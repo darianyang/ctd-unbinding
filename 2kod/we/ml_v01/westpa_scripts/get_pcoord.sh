@@ -18,6 +18,7 @@ CMD="$CMD trajin $WEST_STRUCT_DATA_REF \n"
 #CMD="$CMD trajin $WEST_SIM_ROOT/bstates/05_eq3.rst \n"
 CMD="$CMD autoimage anchor :38 \n"
 CMD="$CMD reference $WEST_SIM_ROOT/bstates/05_eq3.rst \n"
+#CMD="$CMD reference $WEST_SIM_ROOT/reference/02_min.pdb\n"
 
 # binding rmsd of m1 
 #CMD="$CMD rms Fit_M2 :94-163&!@H= reference \n"
@@ -74,8 +75,11 @@ echo -e "$CMD" | cpptraj #$CPPTRAJ
 #paste <(cat pcoord.dat | tail -n +2 | awk '{print $3}') <(cat pcoord.dat | tail -n +2 | awk '{print $6}') > $WEST_PCOORD_RETURN
 
 # calc weighted avgs
-python weighted_dmat_pcoord.py m2w184_m1_dmat.dat $WEST_SIM_ROOT/common_files/m2w184_m1_dmat_weights.txt
-paste <(cat w_avgs.txt) <(cat pcoord.dat | tail -n +2 | awk '{print $6}') > $WEST_PCOORD_RETURN
+python weighted_dmat_pcoord.py m1w184_m2_dmat.dat $WEST_SIM_ROOT/common_files/m1w184_m2_dmat_weights.txt w_avgs_m1.txt
+python weighted_dmat_pcoord.py m2w184_m1_dmat.dat $WEST_SIM_ROOT/common_files/m2w184_m1_dmat_weights.txt w_avgs_m2.txt
+# calc pdt of the weighted avgs
+python $WEST_SIM_ROOT/scripts/calc_pdt.py w_avgs_m1.txt w_avgs_m2.txt w_avgs_pdt.txt
+paste <(cat w_avgs_pdt.txt) <(cat pcoord.dat | tail -n +2 | awk '{print $6}') > $WEST_PCOORD_RETURN
 
 
 if [ -n "$SEG_DEBUG" ] ; then

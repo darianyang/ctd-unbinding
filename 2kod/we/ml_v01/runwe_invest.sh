@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --job-name=mlv00_ctd_unbinding_WE
+#SBATCH --job-name=mlv01_ctd_unbinding_WE
 #SBATCH --output=job_logs/slurm.out
 #SBATCH --error=job_logs/slurm.err
 #SBATCH --nodes=1
