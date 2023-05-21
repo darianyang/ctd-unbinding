@@ -4,7 +4,7 @@ PRMTOP=2kod_m01_dry.prmtop
 
 # cpptraj input
 CMD="     parm ../../common_files/$PRMTOP \n" 
-CMD="$CMD trajin ../500_29_auto.nc 1 last 10 \n"
+CMD="$CMD trajin ../500_29_auto.nc 1 last 1 \n"
 #CMD="$CMD reference ../../bstates/05_eq3.ncrst name [ref] \n"
 CMD="$CMD reference ../../reference/02_min.pdb name [ref] \n"
 CMD="$CMD reference /Users/darian/github/ctd-unbinding/2kod/std-prep/2kod_m01_solv.pdb :* name [nmr] \n"
@@ -24,12 +24,12 @@ CMD="$CMD rms RMS_W184_M185 :41,42,129,130&!@H= nofit out rms_w_m.dat \n"
 ## COM distance between monomers
 CMD="$CMD distance m1-m2-dist :1-75&!@H= :89-163&!@H= out com_dist.dat \n"
 ## min constact distance which defines tstate conditions
-CMD="$CMD nativecontacts mindist :1-88 :89-176 out min_dist.dat \n"
+#CMD="$CMD nativecontacts mindist :1-88 :89-176 out min_dist.dat \n"
 #CMD="$CMD nativecontacts mindist :1-88&!@H= :89-176&!@H= out min_dist2.dat \n"
 #CMD="$CMD nativecontacts mindist :1-88&!@H= :89-176&!@H= distance 6.0 out min_dist2.dat \n"
 #CMD="$CMD nativecontacts mindist :1-88 :89-176 distance 4.5 out min_dist45.dat \n"
 #CMD="$CMD nativecontacts mindist :1-88 :89-176 distance 6.0 out min_dist6.dat \n"
-CMD="$CMD nativecontacts mindist :1-88 :89-176 distance 7.0 out min_dist7.dat \n"
+#CMD="$CMD nativecontacts mindist :1-88 :89-176 distance 7.0 out min_dist7.dat \n"
 #
 ## NMR ref rms calcs
 #CMD="$CMD rms Fit_M2_NMR :94-163&!@H= ref [nmr] \n"
@@ -111,9 +111,9 @@ CMD="$CMD nativecontacts mindist :1-88 :89-176 distance 7.0 out min_dist7.dat \n
 #done
 #
 ## multi dihedral
-#CMD="$CMD multidihedral phi psi chip resrange 1-176 out phi_psi.dat \n"
-#CMD="$CMD multidihedral phi psi resrange 1-176 out phi_psi_chip.dat \n"
-#CMD="$CMD multidihedral psi resrange 1-176 out dihedrals.dat \n"
+CMD="$CMD multidihedral phi psi chip resrange 1-176 out phi_psi.dat \n"
+CMD="$CMD multidihedral phi psi resrange 1-176 out phi_psi_chip.dat \n"
+CMD="$CMD multidihedral chip resrange 1-176 out chip.dat \n"
 #CMD="$CMD multidihedral dihtype chi1:N:CA:CB:CG "
 #CMD="$CMD               dihtype chi2:CA:CB:CG:CD "
 #CMD="$CMD               dihtype chi3:CB:CG:CD:OE1 "
