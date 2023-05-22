@@ -12,3 +12,4 @@ __pycache__
 traj_segs
 seg_logs
 mdcrd
+*.pkl

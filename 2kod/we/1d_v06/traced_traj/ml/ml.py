@@ -27,7 +27,7 @@ class DR_Pcoord:
     Dimensionality reduction based pcoord.
     """
     def __init__(self, data, data_type="cpp", prmtop=None, dim_reduction="pca", 
-                 lagtime=10, scaler="standard", n_components=1):
+                 lagtime=10, scaler="standard", n_components=1, angle_data=False):
         """
         Input data (coords, distances, angles, etc.) and output a per frame
         reduced dimensionality representaion of multi dimensional input data.
@@ -51,6 +51,8 @@ class DR_Pcoord:
             Method of scaling data: default `StandardScaler`.
         n_components : int
             Returns n_components amount of e.g. PCs or TICs.
+        angle_data : bool
+            Default False, set True to convert angle to sin/cos pair.
         """
         self.data = data
         self.data_type = data_type
@@ -59,6 +61,7 @@ class DR_Pcoord:
         self.lagtime = lagtime
         self.scaler = scaler
         self.n_components = n_components
+        self.angle_data = angle_data
 
     def scale_data(self):
         """
@@ -68,6 +71,27 @@ class DR_Pcoord:
         scaler = StandardScaler()
         self.data = scaler.fit_transform(self.data)
 
+    def proc_angle_data(self):
+        """
+        Periodic angles (e.g. dihedrals) near periodic boundaries will
+        behave poorly since -179° and 179° are actually only 2° away.
+        This converts a single angle to radians, then returns the 
+        sin and cos of the radians.
+        """
+        # conver to rads
+        data_rad = self.data * np.pi / 180
+        # convert to cos and sin
+        data_rad_cos = np.cos(data_rad)
+        data_rad_sin = np.sin(data_rad)
+        # sin and cos arrays: χ(i) = cos(θ(i))x + sin(θ(i))y
+        #data_norm = np.linalg.norm()
+        # stack sin and cos arrays:
+        # dPCA paper does this as well: https://doi.org/10.1063/1.2945165
+        data_rad_cos_sin = np.hstack((data_rad_cos, data_rad_sin))
+        # return and save
+        self.data = data_rad_cos_sin
+        return self.data
+
     def proc_cpp_data(self, scale=True):
         """
         Process input cpptraj calculated data.
@@ -75,6 +99,8 @@ class DR_Pcoord:
         # skip first column since this is the frame values
         self.data = np.loadtxt(self.data)[:,1:]
         self.frames = np.arange(0, self.data.shape[0])
+        if self.angle_data:
+            self.proc_angle_data()
         # eventually move to main public method
         if scale:
             self.scale_data()
@@ -142,18 +168,31 @@ class DR_Pcoord:
 if __name__ == "__main__":
     
     # TODO: optimize lagtime with some metric? prob ITS plot
+    # Also, will prob be better to use more data, i.e. of all succ trajs
 
-    #ml = DR_Pcoord("m1w184_m2_ca_dmat.dat", lagtime=1, n_components=2)
+    #ml = DR_Pcoord("m1w184_m2_ca_dmat.dat", lagtime=10, n_components=2)
     #ml = DR_Pcoord("m2w184_m1_ca_dmat.dat", lagtime=10, n_components=2)
-    #ml = DR_Pcoord("chip.dat", lagtime=10, n_components=2)
-    ml = DR_Pcoord("phi_psi.dat", lagtime=10, n_components=2)
-    #ml = DR_Pcoord("phi_psi_chip.dat", lagtime=10, n_components=2)
-    ml.proc_cpp_data(scale=True)
+    #ml = DR_Pcoord("chip.dat", lagtime=10, n_components=2, angle_data=True)
+    #ml = DR_Pcoord("phi_psi.dat", lagtime=10, n_components=2, angle_data=True)
+    #ml = DR_Pcoord("phi_psi_chip.dat", lagtime=10, n_components=2, angle_data=True)
+    #ml.proc_cpp_data(scale=True)
     #plt.plot(ml.run_pca())
     #plt.plot(ml.run_tica())
-    #plt.scatter(ml.run_pca()[:,0], ml.run_pca()[:,1], c=ml.frames, s=5)
-    plt.scatter(ml.run_tica()[:,0], ml.run_tica()[:,1], c=ml.frames, s=5)
-    plt.colorbar()
+    #ml.run_pca()
+    #ml.run_tica()
+    #plt.scatter(ml.proj[:,0], ml.proj[:,1], c=ml.frames, s=5)
+    #plt.colorbar()
+    #print(ml.model.timescales.shape)
+
+    import pickle
+    # write binary pkl file
+    # with open('ml.pkl', 'wb') as handle:
+    #     pickle.dump(ml, handle, protocol=pickle.HIGHEST_PROTOCOL)
+
+    # read binary pkl file
+    with open('ml.pkl', 'rb') as handle:
+        ml = pickle.load(handle)
+    plt.scatter(ml.proj[:,0], ml.proj[:,1], c=ml.frames, s=5)
 
     # this might be useful for maximizing each small boundary of +/- n iterations
     # could optimize the lda score
