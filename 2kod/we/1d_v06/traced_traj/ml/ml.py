@@ -71,7 +71,7 @@ class DR_Pcoord:
         scaler = StandardScaler()
         self.data = scaler.fit_transform(self.data)
 
-    def proc_angle_data(self):
+    def _proc_angle_data(self):
         """
         Periodic angles (e.g. dihedrals) near periodic boundaries will
         behave poorly since -179° and 179° are actually only 2° away.
@@ -100,7 +100,7 @@ class DR_Pcoord:
         self.data = np.loadtxt(self.data)[:,1:]
         self.frames = np.arange(0, self.data.shape[0])
         if self.angle_data:
-            self.proc_angle_data()
+            self._proc_angle_data()
         # eventually move to main public method
         if scale:
             self.scale_data()
@@ -173,26 +173,32 @@ if __name__ == "__main__":
     #ml = DR_Pcoord("m1w184_m2_ca_dmat.dat", lagtime=10, n_components=2)
     #ml = DR_Pcoord("m2w184_m1_ca_dmat.dat", lagtime=10, n_components=2)
     #ml = DR_Pcoord("chip.dat", lagtime=10, n_components=2, angle_data=True)
-    #ml = DR_Pcoord("phi_psi.dat", lagtime=10, n_components=2, angle_data=True)
     #ml = DR_Pcoord("phi_psi_chip.dat", lagtime=10, n_components=2, angle_data=True)
-    #ml.proc_cpp_data(scale=True)
-    #plt.plot(ml.run_pca())
-    #plt.plot(ml.run_tica())
-    #ml.run_pca()
-    #ml.run_tica()
-    #plt.scatter(ml.proj[:,0], ml.proj[:,1], c=ml.frames, s=5)
-    #plt.colorbar()
+
+    # best coord set
+    # ml = DR_Pcoord("phi_psi.dat", lagtime=10, n_components=2, angle_data=True)
+    # ml.proc_cpp_data(scale=True)
+    # ml.run_pca()
+    # #ml.run_tica()
+    # plt.scatter(ml.proj[:,0], ml.proj[:,1], c=ml.frames, s=5)
+    # plt.colorbar()
+
     #print(ml.model.timescales.shape)
 
     import pickle
     # write binary pkl file
-    # with open('ml.pkl', 'wb') as handle:
+    # with open('pca.pkl', 'wb') as handle:
     #     pickle.dump(ml, handle, protocol=pickle.HIGHEST_PROTOCOL)
 
     # read binary pkl file
-    with open('ml.pkl', 'rb') as handle:
+    with open('tica.pkl', 'rb') as handle:
         ml = pickle.load(handle)
-    plt.scatter(ml.proj[:,0], ml.proj[:,1], c=ml.frames, s=5)
+    #plt.scatter(ml.proj[:,0], ml.proj[:,1], c=ml.frames, s=5)
+    # load transform new loaded data test
+    ml2transform = DR_Pcoord("phi_psi.dat", lagtime=10, n_components=2, angle_data=True)
+    ml2transform.proc_cpp_data()
+    new_proj = ml.model.transform(ml2transform.data)
+    np.savetxt("tIC1.dat", new_proj[:,0])
 
     # this might be useful for maximizing each small boundary of +/- n iterations
     # could optimize the lda score
