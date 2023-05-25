@@ -190,15 +190,19 @@ if __name__ == "__main__":
     # with open('pca.pkl', 'wb') as handle:
     #     pickle.dump(ml, handle, protocol=pickle.HIGHEST_PROTOCOL)
 
+    plt.style.use("/Users/darian/github/wedap/wedap/styles/default.mplstyle")
     # read binary pkl file
-    with open('tica.pkl', 'rb') as handle:
+    with open('pca.pkl', 'rb') as handle:
         ml = pickle.load(handle)
-    #plt.scatter(ml.proj[:,0], ml.proj[:,1], c=ml.frames, s=5)
+    plt.scatter(ml.proj[:,0], ml.proj[:,1], c=ml.frames, s=5)
+    plt.xlabel("PC 1")
+    plt.ylabel("PC 2")
     # load transform new loaded data test
-    ml2transform = DR_Pcoord("phi_psi.dat", lagtime=10, n_components=2, angle_data=True)
-    ml2transform.proc_cpp_data()
-    new_proj = ml.model.transform(ml2transform.data)
-    np.savetxt("tIC1.dat", new_proj[:,0])
+    #ml2transform = DR_Pcoord("phi_psi.dat", lagtime=10, n_components=2, angle_data=True)
+    #ml2transform.proc_cpp_data()
+    #new_proj = ml.model.transform(ml2transform.data)
+    # np.savetxt("tIC1.dat", new_proj[:,0])
+    # np.savetxt("tIC2.dat", new_proj[:,1])
 
     # this might be useful for maximizing each small boundary of +/- n iterations
     # could optimize the lda score
@@ -213,4 +217,8 @@ if __name__ == "__main__":
     # plt.plot(ml.run_pca())
     #plt.plot(ml.run_tica())
 
-    plt.show()
+    cbar = plt.colorbar()
+    cbar.set_label("Frame")
+    plt.tight_layout()
+    #plt.show()
+    plt.savefig("pcs.pdf", transparent=True)
