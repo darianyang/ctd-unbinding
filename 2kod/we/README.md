@@ -124,3 +124,24 @@ ml_v02:
 ml_v03 :
     * ml_v02 as template
     * using ml_pcoord and com distance with mab in each
+
+2d_v06:
+    * using ml_v03 as template
+    * NOTE: needed to update min_dist calc, should be including H atoms but was not before
+    * from the min_dist dataset, the inter-contacts may be a good pcoord for intial unbinding
+    * so, running a 2D WE using: 
+        1) n inter-contacts of all atoms 
+        2) com distance
+    * also no longer removing the link to parent.ncrst, which can be useful later on
+    * adding nc and nnc from min_dist to aux data
+
+ml_v04 and ml_v05:
+    * using 2d_v06 as a template
+    * v04 will use PC1 and PC2 as pcoords
+    * v05 will use tIC1 and tIC2 as pcoords
+    * using pkl file from fitted models using succ traj 500_29 from 1d_v06
+        * used the phi/psi dihedral angle space converted to sin/cos coordinates
+    * stopped collecting dmat data as aux
+    * added PC1/PC2/tIC1/tIC2 as aux data
+    * adjusted mab directions depending on component plots
+   

@@ -1,0 +1,4 @@
+/ihome/lchong/dty7/Apps/anaconda3/envs/hamsm/lib/python3.10/site-packages/deeptime/base.py:116: UserWarning: Trying to unpickle estimator CovarianceModel from version 0.4.2 when using version 0.4.4. This might lead to breaking code or invalid results. Use at your own risk.
+  warnings.warn(
+/ihome/lchong/dty7/Apps/anaconda3/envs/hamsm/lib/python3.10/site-packages/deeptime/base.py:116: UserWarning: Trying to unpickle estimator CovarianceKoopmanModel from version 0.4.2 when using version 0.4.4. This might lead to breaking code or invalid results. Use at your own risk.
+  warnings.warn(

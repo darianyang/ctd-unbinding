@@ -1,0 +1,4 @@
+Updating system with the options from the configuration file
+-- WARNING  [westpa.work_managers.zeromq.core.ZMQWorker.dcb2f7b0-7189-4b1b-8494-3cfef1c164de] -- sending SIGKILL to worker process 4941
+-- WARNING  [westpa.work_managers.zeromq.core.ZMQWorker.6a867295-0dc7-40d6-8042-dfc51ff08390] -- sending SIGKILL to worker process 4929
+-- WARNING  [westpa.work_managers.zeromq.core.ZMQWorker.392b1eba-b5f9-4796-9708-5ab730954934] -- sending SIGKILL to worker process 4921
